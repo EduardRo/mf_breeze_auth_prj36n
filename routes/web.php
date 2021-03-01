@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CompanyPresentationController;
+use App\Http\Controllers\CompanyPressReleaseController;
+use App\Http\Controllers\CompanyJobController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +24,35 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+
+
+require __DIR__ . '/auth.php';
+
+
+// Company
+
+Route::get('/company', [CompanyController::class, 'index']);
+Route::get('/company/create', [CompanyController::class, 'create']);
+Route::post('/company/store', [CompanyController::class, 'store']);
+Route::get('/company/{id}', [CompanyController::class, 'show'])->where('id', '[0-9]+');
+Route::get('/company/edit', [CompanyController::class, 'edit']);
+Route::post('/company/update', [CompanyController::class, 'update']);
+
+// companyPresentations
+Route::get('/companypresentation', [CompanyPresentationController::class, 'index']);
+Route::get('/companypresentation/create', [CompanyPresentationController::class, 'create']);
+Route::post('/companypresentation/store', [CompanyPresentationController::class, 'store']);
+Route::get('/companypresentation/edit', [CompanyPresentationController::class, 'edit']);
+Route::post('/companypresentation/update', [CompanyPresentationController::class, 'update']);
+
+// pressReleases
+Route::get('/pressreleases', [CompanyPressreleaseController::class, 'index']);
+Route::get('/pressrelease/create', [CompanyPressReleaseController::class, 'create']);
+Route::get('/pressreleases/{id}', [CompanyPressReleaseController::class, 'show']);
+Route::post('/pressrelease/store', [CompanyPressReleaseController::class, 'store']);
+
+// jobs
+Route::get('/jobs', [CompanyJobController::class, 'index']);
+Route::get('/job/create', [CompanyJobController::class, 'create']);
+Route::post('/job/store', [CompanyJobController::class, 'store']);
+Route::get('/jobs/{id}', [CompanyJobController::class, 'show']);
