@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b4e5c4a079a99be174594c9ba5eceb0",
+    "content-hash": "12916438b4f51bc3f92c1f7c47d7a1ba",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1379,6 +1379,70 @@
                 }
             ],
             "time": "2021-01-18T20:58:21+00:00"
+        },
+        {
+            "name": "midium/laravel-ckeditor",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/midium/laravel-ckeditor.git",
+                "reference": "65f46da346ec697f480d0f446927c7b2871b6f29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/midium/laravel-ckeditor/zipball/65f46da346ec697f480d0f446927c7b2871b6f29",
+                "reference": "65f46da346ec697f480d0f446927c7b2871b6f29",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.0.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Midium\\Ckeditor\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+",
+                "LGPL-2.1+",
+                "MPL-1.1+"
+            ],
+            "authors": [
+                {
+                    "name": "CKSource",
+                    "homepage": "http://cksource.com"
+                },
+                {
+                    "name": "MiDiUm Software"
+                },
+                {
+                    "name": "UniSharp Ltd. (Composer Package Maintainer)",
+                    "homepage": "http://www.unisharp.com"
+                }
+            ],
+            "description": "JavaScript WYSIWYG web text editor (for Laravel 5).",
+            "homepage": "http://ckeditor.com",
+            "keywords": [
+                "CKEditor",
+                "editor",
+                "fckeditor",
+                "html",
+                "javascript",
+                "laravel",
+                "richtext",
+                "text",
+                "wysiwyg"
+            ],
+            "support": {
+                "forum": "http://ckeditor.com/forums",
+                "issues": "http://dev.ckeditor.com",
+                "source": "http://github.com/ckeditor/ckeditor-dev",
+                "wiki": "http://docs.ckeditor.com"
+            },
+            "time": "2016-02-01T15:33:37+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7411,7 +7475,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "midium/laravel-ckeditor": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
