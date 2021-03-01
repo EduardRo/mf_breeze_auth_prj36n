@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\CompanyJob;
 use Illuminate\Http\Request;
+use App\Http\Helpers\ClsCompany;
+use App\Http\Helpers\ClsJobs;
+
 
 class CompanyJobController extends Controller
 {
@@ -14,7 +17,18 @@ class CompanyJobController extends Controller
      */
     public function index()
     {
-        //
+        $customCompany = new ClsCompany();
+        $userId = auth()->id();
+
+        $company = $customCompany->retrieveCompanyId($userId);
+        $company_id = $company->id;
+        $company_name = $company->company_name;
+
+        // class clsJobs
+        $clsJobs = new ClsJobs;
+        $companyJobs = $clsJobs->jobsByCompanyId($company_id);
+        //return $companyJobs;
+        return view('company.Jobs', ['companyname' => $company_name, 'companyjobs' => $companyJobs]);
     }
 
     /**
@@ -24,7 +38,16 @@ class CompanyJobController extends Controller
      */
     public function create()
     {
-        //
+        $customCompany = new ClsCompany();
+        $userId = auth()->id();
+
+        $company = $customCompany->retrieveCompanyId($userId);
+        $company_id = $company->id;
+        $company_name = $company->company_name;
+
+
+        // return  $company_name;
+        return view('company.createCompanyJob', ['company_id' => $company_id, 'company_name' => $company_name]);
     }
 
     /**
@@ -35,7 +58,11 @@ class CompanyJobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Save the data
+        $request->request->add(['enabled' => false]);
+        $input = $request->all();
+        CompanyJob::create($input);
+        return redirect()->back();
     }
 
     /**
@@ -44,7 +71,7 @@ class CompanyJobController extends Controller
      * @param  \App\Models\CompanyJob  $companyJob
      * @return \Illuminate\Http\Response
      */
-    public function show(CompanyJob $companyJob)
+    public function show($id)
     {
         //
     }
@@ -58,6 +85,17 @@ class CompanyJobController extends Controller
     public function edit(CompanyJob $companyJob)
     {
         //
+        $customCompany = new ClsCompany();
+        $userId = auth()->id();
+
+        $company = $customCompany->retrieveCompanyId($userId);
+        $company_id = $company->id;
+        $company_name = $company->company_name;
+        $clsJobs = new ClsJobs;
+        $Job = $clsJobs->jobById($id);
+        //return $companyJobs;
+        return view('company.Job', ['companyname' => $company_name, 'job' => $Job]);
+        //return  $Job;
     }
 
     /**

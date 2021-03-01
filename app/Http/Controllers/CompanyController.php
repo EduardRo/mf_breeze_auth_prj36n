@@ -20,8 +20,8 @@ class CompanyController extends Controller
         $userId = auth()->id();
         
         $company = $customCompany->retrieveCompanyId($userId);
-        return $company;
-        // return view('company.Company', ['company' => $company]);
+        //return $company;
+        return view('company.Company', ['company' => $company]);
     }
 
     /**
