@@ -56,3 +56,10 @@ Route::get('/jobs', [CompanyJobController::class, 'index']);
 Route::get('/job/create', [CompanyJobController::class, 'create']);
 Route::post('/job/store', [CompanyJobController::class, 'store']);
 Route::get('/jobs/{id}', [CompanyJobController::class, 'show']);
+
+
+// projects
+Route::get('/project', [CompanyProjectController::class, 'index']);
+Route::get('/project/create', [CompanyProjectController::class, 'create']);
+Route::post('/project/store', [CompanyProjectController::class, 'store']);
+Route::get('/project/{id}', [CompanyProjectController::class, 'show']);
