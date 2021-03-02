@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="card-body grid gap-2 grid-cols-1">
-   
+<h1>Jobs</h1>   
 <h2>{{$companyname}}</h2>
 
 

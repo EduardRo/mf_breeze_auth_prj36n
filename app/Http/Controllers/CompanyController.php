@@ -16,6 +16,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
+        // modifications
+
         $customCompany = new ClsCompany();
         $userId = auth()->id();
         
@@ -35,6 +37,7 @@ class CompanyController extends Controller
         //return 'controller';
         $currentUser = auth()->id();
         return view('company.createCompany', ['currentUser' => $currentUser]);
+        // modification
     }
 
     /**

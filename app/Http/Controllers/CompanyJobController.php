@@ -108,6 +108,7 @@ class CompanyJobController extends Controller
     public function update(Request $request, CompanyJob $companyJob)
     {
         //
+        $variab='ddd';
     }
 
     /**
