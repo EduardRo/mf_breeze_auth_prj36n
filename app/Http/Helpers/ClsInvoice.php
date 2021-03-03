@@ -1,10 +1,13 @@
 <?php 
 namespace App\Http\Helpers;
+use App\Models\Company;
 
 class ClsInvoice {
 
     public function createInvoice(){
-
+        $clsCompany = new Company;
+        $company = $clsCompany::all();
+        return $company;
 
     }
 
@@ -13,7 +16,7 @@ class ClsInvoice {
     }
 
     public function createInvoiceSerie($typeOfService){
-        
+
 
 
 

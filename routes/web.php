@@ -5,6 +5,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CompanyPresentationController;
 use App\Http\Controllers\CompanyPressReleaseController;
 use App\Http\Controllers\CompanyJobController;
+use App\Http\Controllers\InvoiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,3 +64,6 @@ Route::get('/project', [CompanyProjectController::class, 'index']);
 Route::get('/project/create', [CompanyProjectController::class, 'create']);
 Route::post('/project/store', [CompanyProjectController::class, 'store']);
 Route::get('/project/{id}', [CompanyProjectController::class, 'show']);
+
+//invoice
+Route::get('/invoice',[InvoiceController::class, 'index']);

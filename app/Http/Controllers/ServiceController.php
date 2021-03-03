@@ -2,29 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Invoice;
+use App\Models\Service;
 use Illuminate\Http\Request;
-use App\Http\Helpers\ClsInvoice;
-use App\Http\Helpers\ClsCompany;
 
-class InvoiceController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-
-        $clsInvoice = new ClsInvoice();
-        //$clsCompany = new ClsCompany();
-        //$company=$clsCompany::all();
-
-        //return 'controller';
-        return $clsInvoice->createInvoice();
-
-    
-        
+    public function index()
+    {
+        //
     }
 
     /**
@@ -51,10 +41,10 @@ class InvoiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoice $invoice)
+    public function show(Service $service)
     {
         //
     }
@@ -62,10 +52,10 @@ class InvoiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Invoice $invoice)
+    public function edit(Service $service)
     {
         //
     }
@@ -74,10 +64,10 @@ class InvoiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Invoice $invoice)
+    public function update(Request $request, Service $service)
     {
         //
     }
@@ -85,10 +75,10 @@ class InvoiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Invoice $invoice)
+    public function destroy(Service $service)
     {
         //
     }
