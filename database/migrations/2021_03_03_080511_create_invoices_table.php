@@ -27,9 +27,9 @@ class CreateInvoicesTable extends Migration
             $table->string('invoice_supplier_regcom');
             $table->string('invoice_supplier_fiscal_number');
             $table->integer('invoice_supplier_capital');
-            $table->float('invoice_amount',2);
-            $table->float('invoice_amount_vat',2);
-            $table->float('invoice_total_amount',2);
+            $table->float('invoice_amount', 10, 2);
+            $table->float('invoice_amount_vat', 10, 2);
+            $table->float('invoice_total_amount', 10, 2);
             $table->string('invoice_supplier_city');
             $table->text('invoice_supplier_address');
             $table->string('invoice_supplier_region');
