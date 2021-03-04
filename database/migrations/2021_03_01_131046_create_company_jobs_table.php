@@ -17,6 +17,7 @@ class CreateCompanyJobsTable extends Migration
             $table->id();
             $table->integer('company_id');
             $table->string('job_name');
+            $table->string('job_category');
             $table->string('job_type');
             $table->string('job_level');
             $table->text('job_description');
