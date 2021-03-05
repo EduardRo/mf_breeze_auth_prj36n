@@ -49,6 +49,7 @@ Route::post('/companypresentation/update', [CompanyPresentationController::class
 // pressReleases
 Route::get('/pressreleases', [CompanyPressreleaseController::class, 'index']);
 Route::get('/pressrelease/publishing', [CompanyPressreleaseController::class, 'publishing']);
+Route::get('/pressrelease/edit/{id}',[CompanyPressreleaseController::class, 'edit']);
 Route::get('/pressrelease/create', [CompanyPressReleaseController::class, 'create']);
 Route::get('/pressreleases/{id}', [CompanyPressReleaseController::class, 'show']);
 Route::post('/pressrelease/store', [CompanyPressReleaseController::class, 'store']);

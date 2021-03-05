@@ -11,7 +11,7 @@
 
 </head>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-marketingfocus">
         <a class="navbar-brand" href="/">
             <img src="/logomarketingfocus.png" width="270" height="50" alt="">
           </a>

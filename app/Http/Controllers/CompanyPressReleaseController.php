@@ -16,10 +16,10 @@ class CompanyPressReleaseController extends Controller
      */
     public function index()
     {
-        $customCompany = new ClsCompany();
+        $clsCompany = new ClsCompany();
         $userId = auth()->id();
 
-        $company = $customCompany->retrieveCompanyId($userId);
+        $company = $clsCompany->retrieveCompanyId($userId);
         $company_id = $company->id;
         $company_name = $company->company_name;
 
@@ -81,7 +81,7 @@ class CompanyPressReleaseController extends Controller
      * @param  \App\Models\CompanyPressRelease  $companyPressRelease
      * @return \Illuminate\Http\Response
      */
-    public function edit(CompanyPressRelease $companyPressRelease)
+    public function edit(CompanyPressRelease $companyPressRelease, Request $request)
     {
         //
     }
@@ -113,8 +113,16 @@ class CompanyPressReleaseController extends Controller
     {
         // show the Press releases created but not send for publishing
 
-        $pressReleasedNotPublished = 'jjhhh';
 
+        $clsCompany = new ClsCompany();
+        $userId = auth()->id();
+
+        $company = $clsCompany->retrieveCompanyId($userId);
+        $companyId = $company->id;
+        $clsPressReleases = new ClsPressReleases;
+        
+        $pressReleasedNotPublished = $clsPressReleases->pressReleasedNotPaidNotPublished($companyId);
+        //return $pressReleasedNotPublished;
         return view('company.publishingPressRelease', ['pressReleasedNotPublished' => $pressReleasedNotPublished]);
     }
 

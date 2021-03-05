@@ -1,8 +1,24 @@
+/** My Settings
+
+*/
+.bg-marketingfocus {
+  background-color: #008aa7!important;
+  color: white;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: rgb(255 255 255);
+}
+
+
+
 /*! tailwindcss v2.0.3 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
 /*
+
+
+
 Document
 ========
 */

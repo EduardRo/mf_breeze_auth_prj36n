@@ -11,4 +11,13 @@ class ClsPressReleases
         $pressReleases = CompanyPressRelease::all()->where('company_id', $companyId);
         return $pressReleases;
     }
+    public function pressReleasedNotPaidNotPublished($companyId)
+    {
+        $pressReleases = CompanyPressRelease::all()
+        ->where('company_id', $companyId)
+        ->where('activate', false)
+        ->where('paid', false)
+        ->where('published',false);
+        return $pressReleases;
+    }
 }
