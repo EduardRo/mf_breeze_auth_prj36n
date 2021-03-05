@@ -25,7 +25,7 @@ class CompanyPressReleaseController extends Controller
 
         // class clsPressReleases
         $clsPressReleases = new ClsPressReleases;
-        $companyPressReleases = $clsPressReleases->pressReleases($company_id);
+        $companyPressReleases = $clsPressReleases->pressReleasesByCompanyId($company_id);
         return view('company.PressReleases', ['companyname' => $company_name, 'companypressreleases' => $companyPressReleases]);
     }
 

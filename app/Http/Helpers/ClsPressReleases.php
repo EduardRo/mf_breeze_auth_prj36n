@@ -6,7 +6,7 @@ use App\Models\CompanyPressRelease;
 
 class ClsPressReleases
 {
-    public function pressReleases($companyId)
+    public function pressReleasesByCompanyId($companyId)
     {
         $pressReleases = CompanyPressRelease::all()->where('company_id', $companyId);
         return $pressReleases;
