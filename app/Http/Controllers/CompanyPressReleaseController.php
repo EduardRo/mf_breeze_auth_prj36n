@@ -99,6 +99,29 @@ class CompanyPressReleaseController extends Controller
     }
 
     /**
+     * Publishing show the Press Released but not published and 
+     * the user can make a selection and send for publishing.
+     * If is a subscription then it is published
+     * If no subscription he must buy an individual product to publish
+     * 
+     *
+     * 
+     * 
+     */
+
+    public function publishing()
+    {
+        // show the Press releases created but not send for publishing
+
+        $pressReleasedNotPublished = 'jjhhh';
+
+        return view('company.publishingPressRelease', ['pressReleasedNotPublished' => $pressReleasedNotPublished]);
+    }
+
+
+
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\CompanyPressRelease  $companyPressRelease

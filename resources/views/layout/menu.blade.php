@@ -52,6 +52,18 @@
           <a class="dropdown-item" href="/jobs">Job-uri</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Publicare
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/gpresentation/publishing">Publicare Prezentare</a>
+          <a class="dropdown-item" href="/pressrelease/publishing">Publicare Comunicat de Presa</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/job/publishing">Publicare Job</a>
+          
+        </div>
+      </li>
 
     </ul>
     <ul class="navbar-nav">

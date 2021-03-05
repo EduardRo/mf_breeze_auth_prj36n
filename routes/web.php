@@ -48,12 +48,14 @@ Route::post('/companypresentation/update', [CompanyPresentationController::class
 
 // pressReleases
 Route::get('/pressreleases', [CompanyPressreleaseController::class, 'index']);
+Route::get('/pressrelease/publishing', [CompanyPressreleaseController::class, 'publishing']);
 Route::get('/pressrelease/create', [CompanyPressReleaseController::class, 'create']);
 Route::get('/pressreleases/{id}', [CompanyPressReleaseController::class, 'show']);
 Route::post('/pressrelease/store', [CompanyPressReleaseController::class, 'store']);
 
 // jobs
 Route::get('/jobs', [CompanyJobController::class, 'index']);
+Route::get('/job/publishing', [CompanyJobController::class, 'create']);
 Route::get('/job/create', [CompanyJobController::class, 'create']);
 Route::post('/job/store', [CompanyJobController::class, 'store']);
 Route::get('/jobs/{id}', [CompanyJobController::class, 'show']);
