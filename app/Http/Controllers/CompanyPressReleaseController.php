@@ -56,6 +56,9 @@ class CompanyPressReleaseController extends Controller
     {
         // Save the data
         $request->request->add(['enabled' => false]);
+        $request->request->add(['activate' => false]);
+        $request->request->add(['paid' => false]);
+        $request->request->add(['published' => false]);
         $input = $request->all();
         CompanyPressRelease::create($input);
         return redirect()->back();

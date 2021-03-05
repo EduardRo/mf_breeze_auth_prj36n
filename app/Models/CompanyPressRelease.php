@@ -12,6 +12,10 @@ class CompanyPressRelease extends Model
         'company_id',
         'title',
         'text',
-        'enabled'
+        'enabled',
+        'activate',
+        'paid',
+        'published',
+
     ];
 }

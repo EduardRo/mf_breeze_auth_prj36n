@@ -13,4 +13,6 @@ class ClsProcessing
     public function verifySubscription($product, $category)
     {
     }
+
+    
 }
