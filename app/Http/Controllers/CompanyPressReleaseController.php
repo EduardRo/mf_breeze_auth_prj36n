@@ -70,9 +70,14 @@ class CompanyPressReleaseController extends Controller
      * @param  \App\Models\CompanyPressRelease  $companyPressRelease
      * @return \Illuminate\Http\Response
      */
-    public function show(CompanyPressRelease $companyPressRelease)
+    public function show($Id)
     {
-        //
+        
+        
+        $pressReleased = CompanyPressRelease::all()
+        ->where('id', $Id);
+        return $pressReleased;
+        //return $Id;
     }
 
     /**
@@ -126,6 +131,23 @@ class CompanyPressReleaseController extends Controller
         return view('company.publishingPressRelease', ['pressReleasedNotPublished' => $pressReleasedNotPublished]);
     }
 
+    public function activation()
+    {
+        // activation - the procedure to verify the subscription or to create a proforma
+
+
+        //$clsCompany = new ClsCompany();
+        //$userId = auth()->id();
+
+        //$company = $clsCompany->retrieveCompanyId($userId);
+        //$companyId = $company->id;
+        //$clsPressReleases = new ClsPressReleases;
+        
+        //$pressReleasedActivated = $clsPressReleases->pressReleasedById($Id);
+        //return $pressReleasedActivated;
+        // return view('company.publishingPressRelease', ['pressReleasedNotPublished' => $pressReleasedNotPublished]);
+        return 'sunt in controller activation';
+    }
 
 
 

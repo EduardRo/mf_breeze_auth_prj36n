@@ -48,10 +48,12 @@ Route::post('/companypresentation/update', [CompanyPresentationController::class
 
 // pressReleases
 Route::get('/pressreleases', [CompanyPressreleaseController::class, 'index']);
-Route::get('/pressrelease/publishing', [CompanyPressreleaseController::class, 'publishing']);
-Route::get('/pressrelease/edit/{id}',[CompanyPressreleaseController::class, 'edit']);
+
+Route::get('/pressrelease/publishing', [CompanyPressReleaseController::class, 'publishing']);
+Route::get('/pressrelease/publishing/{id}',[CompanyPressReleaseController::class,'activation']);
+Route::get('/pressrelease/edit/{id}',[CompanyPressReleaseController::class, 'edit']);
 Route::get('/pressrelease/create', [CompanyPressReleaseController::class, 'create']);
-Route::get('/pressreleases/{id}', [CompanyPressReleaseController::class, 'show']);
+Route::get('/pressrelease/{id}', [CompanyPressReleaseController::class, 'show']);
 Route::post('/pressrelease/store', [CompanyPressReleaseController::class, 'store']);
 
 // jobs

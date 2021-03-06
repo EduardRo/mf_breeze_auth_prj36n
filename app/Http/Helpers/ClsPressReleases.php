@@ -20,4 +20,10 @@ class ClsPressReleases
         ->where('published',false);
         return $pressReleases;
     }
+
+    public function pressReleasedById($Id){
+        $pressReleases = CompanyPressRelease::all()->where('id', $Id);
+        return $pressReleases;
+
+    }
 }
