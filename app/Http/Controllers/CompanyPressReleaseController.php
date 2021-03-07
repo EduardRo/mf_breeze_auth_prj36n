@@ -145,13 +145,26 @@ class CompanyPressReleaseController extends Controller
         // verification for subscription
 
 
-        $companyId=33;
+        //$companyId=33;
         $clsSubscription = new ClsSubscription();
-        $subscriptionExist = $clsSubscription->verifySubscriptionByCompanyId
-        ($companyId);
+        $subscriptionExist = $clsSubscription->verifySubscriptionByCompanyId($companyId);
+        if($subscriptionExist){
+            $currentSubscription=$subscriptionExist;
+            $subscriptionId = $subscriptionExist->id;
+            //return $subscriptionId . ' -- ' . $subscriptionExist;
+            $clsSubscription->modifyCurrentSubscription($subscriptionId);
+            $clsSubscription->saveCurrentSubscription($currentSubscription);
+            
+
+            return 'done';
+        } else {
+            return 'Nu exista';
+        }
+
+
         
         
-        return 'Press Release Id: '. $pressReleaseId . 'Company Id: '. $companyId . $subscriptionExist ;
+        //return 'Press Release Id: '. $pressReleaseId . 'Company Id: '. $companyId . $subscriptionExist ;
     }
 
 

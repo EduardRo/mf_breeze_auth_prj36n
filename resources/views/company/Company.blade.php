@@ -15,34 +15,34 @@
                     <div class="card-body">
                         <div class="grid gap-2 grid-cols-1">
                           
-                            <div class="box-border padding-2 md:box-content text-white font-extrabold bg-blue-300  px-2 py-2">
+                            <div class="box-border padding-2 md:box-content text-white font-light bg-blue-300  px-2 py-2">
                                 RegCom: {{$company->company_regcom}}
                             </div>
-                            <div class="box-border padding-2 md:box-content text-white font-extrabold bg-blue-300  px-2 py-2">
+                            <div class="box-border padding-2 md:box-content text-white font-light bg-blue-300  px-2 py-2">
                                Cod fiscal: {{$company->company_fiscalcode}}
                             </div>
-                            <div class="box-border padding-2 md:box-content text-white font-extrabold bg-blue-300  px-2 py-2">
+                            <div class="box-border padding-2 md:box-content text-white font-light bg-blue-300  px-2 py-2">
                                Capital: {{$company->company_capital}}
                             </div>
-                            <div class="box-border padding-2 md:box-content text-white font-extrabold bg-blue-300  px-2 py-2">
+                            <div class="box-border padding-2 md:box-content text-white font-light bg-blue-300  px-2 py-2">
                                Banca: {{$company->company_bank}}
                             </div>
-                            <div class="box-border padding-2 md:box-content text-white font-extrabold bg-blue-300  px-2 py-2">
+                            <div class="box-border padding-2 md:box-content text-white font-light bg-blue-300  px-2 py-2">
                                IBAN: {{$company->company_bank_account}}
                             </div>
-                            <div class="box-border padding-2 md:box-content text-white font-extrabold bg-blue-300  px-2 py-2">
+                            <div class="box-border padding-2 md:box-content text-white font-light bg-blue-300  px-2 py-2">
                                 Localitate: {{$company->company_city}}
                             </div>
-                            <div class="box-border padding-2 md:box-content text-white font-extrabold bg-blue-300  px-2 py-2">
+                            <div class="box-border padding-2 md:box-content text-white font-light bg-blue-300  px-2 py-2">
                                 Adresa: {{$company->company_address}}
                             </div>
-                            <div class="box-border padding-2 md:box-content text-white font-extrabold bg-blue-300  px-2 py-2">
+                            <div class="box-border padding-2 md:box-content text-white font-light bg-blue-300  px-2 py-2">
                                 Persoane de contact: {{$company->company_contact}}
                             </div>
-                            <div class="box-border padding-2 md:box-content text-white font-extrabold bg-blue-300  px-2 py-2">
+                            <div class="box-border padding-2 md:box-content text-white font-light bg-blue-300  px-2 py-2">
                                 Email: {{$company->company_email}}
                             </div>
-                            <div class="box-border padding-2 md:box-content text-white font-extrabold bg-blue-300  px-2 py-2">
+                            <div class="box-border padding-2 md:box-content text-white font-light bg-blue-300  px-2 py-2">
                                 Telefon: {{$company->company_phone}}
                             </div>
 
