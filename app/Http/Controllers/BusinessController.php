@@ -2,42 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Invoice;
+use App\Models\Business;
 use Illuminate\Http\Request;
-use App\Http\Helpers\ClsInvoice;
-use App\Http\Helpers\ClsCompany;
 
-class InvoiceController extends Controller
+class BusinessController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-
-        /* Call 4 methods from the ClsInvoice that give back
-        objects to be used in the invoice template
-        the Customer Data
-        the Supplier data
-        the Invoice Number
-        The Body of the invoice
-
-
-
-        */
-
-        $clsInvoice = new ClsInvoice();
-        //$clsCompany = new ClsCompany();
-        //$company=$clsCompany::all();
-
-        //return 'controller';
-
-
-        return $clsInvoice->createInvoice();
-
-    
-        
+    public function index()
+    {
+        //
     }
 
     /**
@@ -64,10 +41,10 @@ class InvoiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\Business  $business
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoice $invoice)
+    public function show(Business $business)
     {
         //
     }
@@ -75,10 +52,10 @@ class InvoiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\Business  $business
      * @return \Illuminate\Http\Response
      */
-    public function edit(Invoice $invoice)
+    public function edit(Business $business)
     {
         //
     }
@@ -87,10 +64,10 @@ class InvoiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\Business  $business
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Invoice $invoice)
+    public function update(Request $request, Business $business)
     {
         //
     }
@@ -98,10 +75,10 @@ class InvoiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Invoice  $invoice
+     * @param  \App\Models\Business  $business
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Invoice $invoice)
+    public function destroy(Business $business)
     {
         //
     }

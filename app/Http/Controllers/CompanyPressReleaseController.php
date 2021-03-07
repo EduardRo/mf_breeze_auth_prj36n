@@ -143,9 +143,7 @@ class CompanyPressReleaseController extends Controller
         $company = $clsCompany->retrieveCompanyId($userId);
         $companyId = $company->id;
         // verification for subscription
-
-
-        //$companyId=33;
+        
         $clsSubscription = new ClsSubscription();
         $subscriptionExist = $clsSubscription->verifySubscriptionByCompanyId($companyId);
         if($subscriptionExist){
@@ -155,6 +153,10 @@ class CompanyPressReleaseController extends Controller
             $clsSubscription->modifyCurrentSubscription($subscriptionId);
             $clsSubscription->saveCurrentSubscription($currentSubscription);
             
+            // Make the press release paid and published true
+            $clsPressReleases= new ClsPressReleases;
+            $clsPressReleases->modifyPressRelease($pressReleaseId);
+
 
             return 'done';
         } else {

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Helpers;
+
 use App\Models\CompanyPressRelease;
 
 
@@ -14,16 +15,24 @@ class ClsPressReleases
     public function pressReleasedNotPaidNotPublished($companyId)
     {
         $pressReleases = CompanyPressRelease::all()
-        ->where('company_id', $companyId)
-        ->where('activate', false)
-        ->where('paid', false)
-        ->where('published',false);
+            ->where('company_id', $companyId)
+            ->where('activate', false)
+            ->where('paid', false)
+            ->where('published', false);
         return $pressReleases;
     }
 
-    public function pressReleasedById($Id){
+    public function pressReleasedById($Id)
+    {
         $pressReleases = CompanyPressRelease::all()->where('id', $Id);
         return $pressReleases;
+    }
 
+    public function modifyPressRelease($Id)
+    {
+        $pressRelease = CompanyPressRelease::find($Id)->first();
+        $pressRelease->paid = 1;
+        $pressRelease->published = 1;
+        $pressRelease->save();
     }
 }
