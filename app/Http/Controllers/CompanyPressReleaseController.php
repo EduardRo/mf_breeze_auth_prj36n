@@ -6,6 +6,7 @@ use App\Models\CompanyPressRelease;
 use Illuminate\Http\Request;
 use App\Http\Helpers\ClsCompany;
 use App\Http\Helpers\ClsPressReleases;
+use App\Http\Helpers\ClsSubscription;
 
 class CompanyPressReleaseController extends Controller
 {
@@ -131,22 +132,26 @@ class CompanyPressReleaseController extends Controller
         return view('company.publishingPressRelease', ['pressReleasedNotPublished' => $pressReleasedNotPublished]);
     }
 
-    public function activation()
+    public function activation($pressReleaseId)
     {
         // activation - the procedure to verify the subscription or to create a proforma
 
+        //take the id of the company who made the PressRelesed
+        $clsCompany = new ClsCompany();
+        $userId = auth()->id();
 
-        //$clsCompany = new ClsCompany();
-        //$userId = auth()->id();
+        $company = $clsCompany->retrieveCompanyId($userId);
+        $companyId = $company->id;
+        // verification for subscription
 
-        //$company = $clsCompany->retrieveCompanyId($userId);
-        //$companyId = $company->id;
-        //$clsPressReleases = new ClsPressReleases;
+
+        $companyId=33;
+        $clsSubscription = new ClsSubscription();
+        $subscriptionExist = $clsSubscription->verifySubscriptionByCompanyId
+        ($companyId);
         
-        //$pressReleasedActivated = $clsPressReleases->pressReleasedById($Id);
-        //return $pressReleasedActivated;
-        // return view('company.publishingPressRelease', ['pressReleasedNotPublished' => $pressReleasedNotPublished]);
-        return 'sunt in controller activation';
+        
+        return 'Press Release Id: '. $pressReleaseId . 'Company Id: '. $companyId . $subscriptionExist ;
     }
 
 
