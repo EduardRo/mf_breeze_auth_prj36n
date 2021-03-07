@@ -34,7 +34,8 @@ class InvoiceController extends Controller
         //return 'controller';
 
 
-        return $clsInvoice->createInvoice();
+        //return $clsInvoice->createInvoice();
+        return view('company.Invoice');
 
     
         
