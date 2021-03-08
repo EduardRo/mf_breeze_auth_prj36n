@@ -75,3 +75,7 @@
 .invoice {
     padding-top: 10vh;
 }
+
+.descr {
+    font-weight: 600;
+}

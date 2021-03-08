@@ -4,24 +4,25 @@
 
         <div class="row align-items-start">
             <div class="col col-4 align-self-start">
-                <p>{{$business->business_company_name}}</p>
-                <p>Adresa: {{$business->business_address}}</p>
-                <p>Cod fiscal: {{$business->business_fiscal_number}}</p>
-                <p>RegCom: {{$business->business_regcom}}</p>
-                <p>Banca: {{$business->business_bank}}</p>
-                <p>Iban: {{$business->business_iban}}</p>
+                
+                <p><span class='descr'>Furnizor:</span> {{$business->business_company_name}}</p>
+                <p><span class='descr'>Adresa:</span> {{$business->business_address}}</p>
+                <p><span class='descr'>Cod fiscal:</span> {{$business->business_fiscal_number}}</p>
+                <p><span class='descr'>RegCom:</span> {{$business->business_regcom}}</p>
+                <p><span class='descr'>Banca:</span> {{$business->business_bank}}</p>
+                <p><span class='descr'>Iban:</span> {{$business->business_iban}}</p>
 
 
             </div>
             <div class="col col-4 align-self-center">
                 <div class='seriedatafactura'>
                 <h2>Factura Proforma</h2>
-                <p>Serie si numar: MF-878788</p>
-                <p>Data factura: 08-03-2021</p>
+                <p>Serie si numar: {{$InvoiceSerie[0]}} - {{$InvoiceSerie[1]}}</p>
+                <p>Data factura: {{$InvoiceSerie[2]}}</p>
                 </div>
             </div>
             <div class="col col-4 align-self-end">
-                <p>{{$company->company_name}}</p>
+                <p>Client: {{$company->company_name}}</p>
                 <p>Adresa: {{$company->company_address}}</p>
                 <p>Cod fiscal: {{$company->company_fiscalcode}}</p>
                 <p>RegCom: {{$company->company_regcom}}</p>

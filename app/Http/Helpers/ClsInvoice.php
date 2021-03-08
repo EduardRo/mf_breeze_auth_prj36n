@@ -36,6 +36,15 @@ class ClsInvoice {
 
     public function createInvoiceSerie($typeOfService){
         // Create the Invoice Serie depending of the type of product
+        // produs individual 1 multiplu 2 (gen abonament)
+        // trebuie ! Atentie ca variabila is id de fapt !!!
+        $categoryOfService=Service::all()->where('id',$typeOfService)->first();
+        $userId = auth()->id();
+        $serie='MF'. $categoryOfService->service_category;
+        $nr = $categoryOfService->service_code . date('d') . date('m') . $userId;
+        $data = date('d') .'-'. date('m').'-' . date('Y');
+
+        return array($serie, $nr, $data);
 
 
 
@@ -44,10 +53,3 @@ class ClsInvoice {
 
 
 }
-
-    
-
-
-
-
-?>
