@@ -21,7 +21,16 @@ class ClsInvoice {
 
     }
 
-    public function createInvoiceBody(){
+    public function createInvoiceBodyByServiceId($ServiceId){
+        $service = Service::all()->where('id',$ServiceId)->first();
+        $invoiceBody=[];
+        $tva = $service->service_unit_price *0.19;
+        array_push($invoiceBody, $service->service_name, $service->service_unit_price, $tva);
+        return $invoiceBody;
+
+
+
+
 
     }
 

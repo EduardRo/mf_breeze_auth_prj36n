@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoice;
+use App\Models\Business;
 use Illuminate\Http\Request;
 use App\Http\Helpers\ClsInvoice;
 use App\Http\Helpers\ClsCompany;
@@ -14,7 +15,8 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
+    public function index()
+    {
 
         /* Call 4 methods from the ClsInvoice that give back
         objects to be used in the invoice template
@@ -26,19 +28,26 @@ class InvoiceController extends Controller
 
 
         */
+        $clsCompany = new ClsCompany();
+        $userId = auth()->id();
+
+        $company = $clsCompany->retrieveCompanyId($userId);
+        $company_id = $company->id;
+        // Date furnizor;
+        $bussiness = Business::all()->where('valabil', 1)->first();
 
         $clsInvoice = new ClsInvoice();
+        $ServiceId=2;
+        $invoiceBody=$clsInvoice->createInvoiceBodyByServiceId($ServiceId);
         //$clsCompany = new ClsCompany();
         //$company=$clsCompany::all();
 
-        //return 'controller';
-
+        
 
         //return $clsInvoice->createInvoice();
-        return view('company.Invoice');
 
-    
-        
+
+        return view('company.Invoice', ['company' => $company, 'business' => $bussiness, 'InvoiceBody'=>$invoiceBody]);
     }
 
     /**

@@ -7,17 +7,16 @@
 }
 
 .job-result {
-    margin-top: 1.4em; 
+    margin-top: 1.4em;
     margin-bottom: 0.7em;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 6px;
     box-shadow: 0px 0px 6px -1px rgb(0 0 0 / 15%);
-
 }
 .module {
-    font-family: 'Nunito Sans', sans-serif;
-    
+    font-family: "Nunito Sans", sans-serif;
+
     line-height: 1.42857143;
     color: #454545;
     background-color: #fff;
@@ -31,16 +30,48 @@
 .module-content {
     padding-left: 14px;
     padding-right: 14px;
-    padding-bottom:14px;
+    padding-bottom: 14px;
     word-break: break-word;
-    
 }
 
 .btn-primary a {
-    color:white;
+    color: white;
     text-decoration: none;
 }
 .job-result-title a {
     color: #323232;
     text-decoration: none;
+}
+
+.col {
+    border: 1px solid black;
+    padding: 15 5 20 5;
+    
+}
+.col.invoicebody{
+    text-align: center;
+}
+.row {
+    display: -webkit-box;
+    max-height: fit-content;
+}
+.row > [class*="col-"] {
+    display: flex;
+    flex-direction: column;
+}
+
+.seriedatafactura {
+    padding-top: 6vh;
+    text-align: center;
+}
+.seriedatafactura h2 {
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 0 20 0;
+}
+
+.invoice {
+    padding-top: 10vh;
 }
