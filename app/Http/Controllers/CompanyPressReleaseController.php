@@ -150,16 +150,27 @@ class CompanyPressReleaseController extends Controller
             $currentSubscription=$subscriptionExist;
             $subscriptionId = $subscriptionExist->id;
             //return $subscriptionId . ' -- ' . $subscriptionExist;
+            /* trebuie verificat daca quantity nu este zero - 0
+            Daca este zero atunci se trimite catre pagina de achizitie.
+
+            */
+            if($subscriptionExist->quantity_now>0){
             $clsSubscription->modifyCurrentSubscription($subscriptionId);
             $clsSubscription->saveCurrentSubscription($currentSubscription);
             
             // Make the press release paid and published true
             $clsPressReleases= new ClsPressReleases;
             $clsPressReleases->modifyPressRelease($pressReleaseId);
+            return $subscriptionExist;
+            } else {
 
+                return 'este sub zero' . $subscriptionExist;
 
-            return 'done';
+            }
+
+            
         } else {
+            // nu exista abonament si se trimite catre pagina de achizitie
             return 'Nu exista';
         }
 

@@ -1,3 +1,14 @@
+/** My Settings
+
+*/
+.bg-marketingfocus {
+    background-color: #008aa7!important;
+    color: white;
+  }
+  .navbar-dark .navbar-nav .nav-link {
+    color: rgb(255 255 255);
+  }
+
 .two-thirds {
     display: block;
     float: left;
@@ -43,22 +54,7 @@
     text-decoration: none;
 }
 
-.col {
-    border: 1px solid black;
-    padding: 15 5 20 5;
-    
-}
-.col.invoicebody{
-    text-align: center;
-}
-.row {
-    display: -webkit-box;
-    max-height: fit-content;
-}
-.row > [class*="col-"] {
-    display: flex;
-    flex-direction: column;
-}
+
 
 .seriedatafactura {
     padding-top: 6vh;
@@ -78,4 +74,56 @@
 
 .descr {
     font-weight: 600;
+}
+
+.blue {
+    color: rgb(207, 207, 207);
+    background-color: #9ec5fe;
+    padding:10px;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000;
+    padding:10px;
+  }
+
+
+.pink {
+    color: #fff;
+    background-color: #efadce;
+    padding:10px;
+}
+
+.green {
+    color: #fff;
+    background-color: #79dfc1;
+    padding:10px;
+}
+
+.row{
+    padding: 1px;
+}
+/* trebuie refacut pentru invoice
+*/
+.col.invoice{
+    border: 1px solid black;
+    padding: 5px 5px 2px 15px;
+    
+}
+.invoice p{
+    
+    padding: 1px;
+    
+}
+.col.invoicebody{
+    text-align: center;
+}
+
+.row.invoice {
+    display: -webkit-box;
+    max-height: fit-content;
+}
+.row.invoice > [class*="col-"] {
+    display: flex;
+    flex-direction: column;
 }

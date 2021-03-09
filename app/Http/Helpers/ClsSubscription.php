@@ -30,6 +30,7 @@ class ClsSubscription
     public function saveCurrentSubscription($subscriptionCurrent)
     {
         // adauga o noua inregistrare
+        
         $quantity_before = $subscriptionCurrent->quantity_now;
         $quantity_now = $subscriptionCurrent->quantity_now - 1;
         $subscription = CompanySubscription::create(

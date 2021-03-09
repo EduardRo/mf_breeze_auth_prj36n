@@ -1,17 +1,40 @@
 @extends('layout.menu')
 @section('content')
 
-<div class="card-body grid gap-2 grid-cols-1">
-<h1>Press Releases</h1>
+<div class="card-body">
+    <div class="container">
 <h2>{{$companyname}}</h2>
-
+<div class="row blue"><b>Comunicate de presa nepublicate</b></div> 
 @foreach($companypressreleases as $pressrelease)
+@if($pressrelease->enabled==1 and $pressrelease->activate==0)
+     
+    <div class="row"><b>{!!$pressrelease->title!!}</b></div>
+    <div class="row">{!!substr($pressrelease->text,0,300)!!}</div>
+    <hr>
+@endif   
 
-    
-<div class="box-border padding-2 md:box-content text-white font-200 bg-blue-300 px-2 py-2">
-    <h2>{!!$pressrelease->title!!}</h2>
-    <p>{!!$pressrelease->text!!}</p>
-</div>
 @endforeach
+<div class="row pink"><b>Comunicate de presa in asteptare</b></div>  
+@foreach($companypressreleases as $pressrelease)
+@if($pressrelease->activate==1 and $pressrelease->published==0)
+    
+    <div class="row"><b>{!!$pressrelease->title!!}</b></div>
+    <div class="row">{!!substr($pressrelease->text,0,300)!!}</div>
+    <hr>
+@endif  
+@endforeach
+<div class="row green"><b>Comunicate de presa publicate</b></div>  
+@foreach($companypressreleases as $pressrelease)
+@if($pressrelease->published==1)
+    
+    <div class="row"><b>{!!$pressrelease->title!!}</b></div>
+    <div class="row">{!!substr($pressrelease->text,0,300)!!}</div>
+    <hr>
+@endif  
+@endforeach
+
+
+
+</div>
 </div>
 @endsection

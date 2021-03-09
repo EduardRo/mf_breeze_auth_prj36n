@@ -23,7 +23,7 @@ class CreateCompanySubscriptionsTable extends Migration
             $table->string('used_for')->default('');
             $table->integer('service_id')->default(0);
             $table->string('subscription_invoice')->default('');
-            $table->string('subscription_price')->default('');
+            $table->float('subscription_price')->default(0);
             $table->boolean('valid');
             $table->timestamps();
         });

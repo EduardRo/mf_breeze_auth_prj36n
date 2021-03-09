@@ -9,7 +9,7 @@ class ClsPressReleases
 {
     public function pressReleasesByCompanyId($companyId)
     {
-        $pressReleases = CompanyPressRelease::all()->where('company_id', $companyId);
+        $pressReleases = CompanyPressRelease::where('company_id', $companyId)->orderBy('created_at','DESC')->get();
         return $pressReleases;
     }
     public function pressReleasedNotPaidNotPublished($companyId)
@@ -30,7 +30,7 @@ class ClsPressReleases
 
     public function modifyPressRelease($Id)
     {
-        $pressRelease = CompanyPressRelease::find($Id)->first();
+        $pressRelease = CompanyPressRelease::find($Id);
         $pressRelease->paid = 1;
         $pressRelease->published = 1;
         $pressRelease->save();
