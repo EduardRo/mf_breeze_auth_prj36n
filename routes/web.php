@@ -6,6 +6,7 @@ use App\Http\Controllers\CompanyPresentationController;
 use App\Http\Controllers\CompanyPressReleaseController;
 use App\Http\Controllers\CompanyJobController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\AcquisitionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,3 +73,6 @@ Route::get('/project/{id}', [CompanyProjectController::class, 'show']);
 
 //invoice
 Route::get('/invoice',[InvoiceController::class, 'index']);
+
+//acquisition
+Route::get('/acquisition',[AcquisitionController::class, 'index']);
