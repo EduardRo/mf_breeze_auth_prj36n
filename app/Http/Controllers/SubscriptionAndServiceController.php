@@ -14,7 +14,7 @@ class SubscriptionAndServiceController extends Controller
     public function index()
     {
         //
-        return 'Subscriptions and services';
+        return view('company.SubscriptionAndService');
     }
 
     /**

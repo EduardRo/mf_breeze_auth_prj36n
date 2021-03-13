@@ -95,3 +95,6 @@
 </nav>
 
 @yield('content')
+@yield('content1')
+@yield('content2')
+
