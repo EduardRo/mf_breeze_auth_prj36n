@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SubscriptionAndService extends Controller
+class SubscriptionAndServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,6 +14,7 @@ class SubscriptionAndService extends Controller
     public function index()
     {
         //
+        return 'Subscriptions and services';
     }
 
     /**
