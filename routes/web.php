@@ -9,6 +9,7 @@ use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\AcquisitionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubscriptionAndServiceController;
+use App\Http\Controllers\SubscriptionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,8 +80,13 @@ Route::get('/invoice',[InvoiceController::class, 'index']);
 //acquisition
 Route::get('/acquisition',[AcquisitionController::class, 'index']);
 
-// Subscription and Services
-Route::get('/subscriptionsandservices',[SubscriptionAndServiceController::class, 'index']);
+// Subscriptions
+
+Route::get('/subscriptions',[SubscriptionController::class, 'index']);
+
 
 // Services 
 Route::get('/services',[ServiceController::class, 'index']);
+
+// Subscription and Services
+Route::get('/subscriptionsandservices',[SubscriptionAndServiceController::class, 'index']);

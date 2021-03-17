@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    Subscriptions
+<h1>Subscriptions</h1>
 </body>
 </html>
