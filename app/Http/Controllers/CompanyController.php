@@ -23,7 +23,7 @@ class CompanyController extends Controller
         
         $company = $customCompany->retrieveCompanyId($userId);
         //return $company;
-        return view('company.Company', ['company' => $company]);
+        return view('company.Company', ['company' => $company, 'userId'=>$userId]);
     }
 
     /**
@@ -35,7 +35,14 @@ class CompanyController extends Controller
     {
         // Aduce forma in care se salveaza datele companiei
         //return 'controller';
+
+        // Verifica daca exista deja o prezentare
+        // Daca exista atunci cheama update
+
+
         $currentUser = auth()->id();
+
+        
         return view('company.createCompany', ['currentUser' => $currentUser]);
         // modification
     }

@@ -77,18 +77,39 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/subscriptionandservices">Abonamente si servicii</a>
+                <a class="nav-link active" aria-current="page" href="/subscriptionandservices">Abonamente si
+                    servicii</a>
             </li>
 
         </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/register">Register</a>
-            </li>
-        </ul>
+
+        @auth
+            <ul class="navbar-nav">
+                <li class="nav-link"> {{ Auth::user()->name }}</li>
+                <!-- logout-->
+                <li>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <input type="submit" value="Logout" class="logout-button"/>
+                <form>
+                </li>
+
+
+
+            </ul>
+        @endauth
+
+        @guest
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+            </ul>
+        @endguest
+
 
 
     </div>
@@ -97,4 +118,3 @@
 @yield('content')
 @yield('content1')
 @yield('content2')
-

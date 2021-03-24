@@ -6,6 +6,7 @@ use App\Models\CompanyPresentation;
 use Illuminate\Http\Request;
 use App\Http\Helpers\ClsCompany;
 use App\Http\Helpers\ClsPresentation;
+use Illuminate\Routing\Redirector;
 
 class CompanyPresentationController extends Controller
 {
@@ -24,8 +25,15 @@ class CompanyPresentationController extends Controller
         $company_name = $company->company_name;
         $clsPresentation = new ClsPresentation();
         $presentation = $clsPresentation->presentationByCompanyId($company_id);
+        if ($presentation==""){
+            
+            return redirect()->action([CompanyPresentationController::class, 'create']);
+            //return $this->create(); //se poate si asa in acelasi controller
+        } else {
+            return redirect()->action([CompanyPresentationController::class, 'update']);
+        }
         //return $companyJobs;
-        return view('company.Presentation', ['presentation' => $presentation]);
+       // return view('company.Presentation', ['presentation' => $presentation]);
         //return $company_name;
         //return $presentation;
     }
@@ -45,18 +53,22 @@ class CompanyPresentationController extends Controller
         $company = $customCompany->retrieveCompanyId($userId);
         $company_id = $company->id;
         $company_name = $company->company_name;
-
-
+        $clsPresentationCompany = new ClsPresentation();
+        $presentation = $clsPresentationCompany->presentationByCompanyId($company_id);
+        if ($presentation==""){
+            return view(
+                'company.createPresentationsCompany',
+                [
+                    'user_id' => $userId,
+                    'company_id' => $company_id,
+                    'company_name' => $company_name
+                ]);
+        } else {
+            return redirect()->action('CompanyPresentation@update');
+        }
+        
         // return  $company_name;
         
-        return view(
-            'company.createPresentationsCompany',
-            [
-                'user_id' => $userId,
-                'company_id' => $company_id,
-                'company_name' => $company_name
-            ]
-        ); 
     }
 
     /**
@@ -69,6 +81,10 @@ class CompanyPresentationController extends Controller
     {
         // Save the data
         $request->request->add(['enabled' => false]);
+        $request->request->add(['activated' => false]);
+        $request->request->add(['paid' => false]);
+        $request->request->add(['published' => false]);
+        $request->request->add(['deleted' => false]);
         $input = $request->all();
         CompanyPresentation::create($input);
         return redirect()->back();

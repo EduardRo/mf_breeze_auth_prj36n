@@ -127,3 +127,13 @@
     display: flex;
     flex-direction: column;
 }
+
+
+.logout-button{
+    color: white;
+    background-color: #008aa7;
+    border: none;
+    
+    display: block;
+    padding: .5rem 1rem;
+}

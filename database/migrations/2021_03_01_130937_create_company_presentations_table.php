@@ -22,7 +22,13 @@ class CreateCompanyPresentationsTable extends Migration
             $table->text('company_management_team');
             $table->text('company_address');
             $table->text('company_contact');
-            $table->boolean('enabled');
+            $table->boolean('enabled')->default(1);
+            $table->boolean('activated')->nullable();
+            $table->boolean('paid')->nullable();
+            $table->boolean('published')->nullable();
+            $table->boolean('deleted')->nullable();
+
+
             $table->timestamps();
         });
     }
