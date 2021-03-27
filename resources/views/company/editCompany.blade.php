@@ -21,20 +21,20 @@
                             </div>
                             <div class="form-group">
                                 <label>Nume Companie:</label>
-                                <input name="company_name" value={{$company->company_name}} rows="15" cols="40" class="form-control"/>
+                                <input name="company_name" value="{{$company->company_name}}" rows="15" cols="40" class="form-control"/>
                             </div>
                             <div class="form-group">
                                 <label>Registrul Comertului:</label>
-                                <input name="company_regcom" value={{$company->company_regcom}} rows="15" cols="40" class="form-control"/>
+                                <input name="company_regcom" value="{{$company->company_regcom}}" rows="15" cols="40" class="form-control"/>
                             </div>
                             <div class="form-group">
                                 <label>Cod Fiscal:</label>
-                                <input name="company_fiscalcode" value={{$company->company_fiscalcode}} rows="15" cols="40" class="form-control"/>
+                                <input name="company_fiscalcode" value="{{$company->company_fiscalcode}}" rows="15" cols="40" class="form-control"/>
                             </div>
                             
                             <div class="form-group">
                                 <label>Localitate:</label>
-                                <input name="company_city" value={{$company->company_city}} rows="15" cols="40" class="form-control"/>
+                                <input name="company_city" value="{{$company->company_city}}" rows="15" cols="40" class="form-control"/>
                             </div>
                             <div class="form-group">
                                 <label>Adresa:</label>
@@ -42,23 +42,23 @@
                             </div>
                             <div class="form-group">
                                 <label>Persoana Contact</label>
-                                <input name="company_contact" value={{$company->company_contact}} rows="5" cols="40" class="form-control" />
+                                <input name="company_contact" value="{{$company->company_contact}}" rows="5" cols="40" class="form-control" />
                             </div>
                             <div class="form-group">
                                 <label>Email:</label>
-                                <input type="email" name="company_email" value={{$company->company_email}} class="form-control"/>
+                                <input type="email" name="company_email" value="{{$company->company_email}}" class="form-control"/>
                             </div>
                             <div class="form-group">
                                 <label>Telefon:</label>
-                                <input type="text" name="company_phone" value={{$company->company_phone}} class="form-control"/>
+                                <input type="text" name="company_phone" value="{{$company->company_phone}}" class="form-control"/>
                             </div>
                             <div class="form-group">
                                 <label>Nume Banca</label>
-                                <input type="text" name="company_bank" value={{$company->company_bank}} class="form-control"/>
+                                <input type="text" name="company_bank" value="{{$company->company_bank}}" class="form-control"/>
                             </div>
                             <div class="form-group">
                                 <label>IBAN</label>
-                                <input type="text" name="company_bank_account" value={{$company->company_bank_account}} class="form-control"/>
+                                <input type="text" name="company_bank_account" value="{{$company->company_bank_account}}" class="form-control"/>
                             </div>
                             <div class="form-group text-center">
                                 <button type="submit" class="btn btn-danger btn-sm">Salveaza</button>

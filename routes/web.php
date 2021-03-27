@@ -35,6 +35,7 @@ require __DIR__ . '/auth.php';
 
 
 // Company
+Route::get('/logout', [CompanyController::class, 'logout']);
 
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/create', [CompanyController::class, 'create']);
@@ -46,7 +47,7 @@ Route::post('/company/update', [CompanyController::class, 'update']);
 // companyPresentations
 Route::get('/companypresentation', [CompanyPresentationController::class, 'index']);
 Route::get('/companypresentation/create', [CompanyPresentationController::class, 'create']);
-Route::post('/companypresentation/store', [CompanyPresentationController::class, 'store']);
+Route::post('/companypresentation/store', [CompanyPresentationController::class, 'store'])->middleware(['auth']);
 Route::get('/companypresentation/edit', [CompanyPresentationController::class, 'edit']);
 Route::post('/companypresentation/update', [CompanyPresentationController::class, 'update']);
 

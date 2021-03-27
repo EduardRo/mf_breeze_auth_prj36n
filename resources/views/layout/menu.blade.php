@@ -29,8 +29,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            @auth
-            @endauth
+
 
 
 
@@ -82,23 +81,15 @@
             </li>
 
         </ul>
-
         @auth
             <ul class="navbar-nav">
-                <li class="nav-link"> {{ Auth::user()->name }}</li>
+                <li class="nav-link">{{ Auth::user()->name }}</li>
                 <!-- logout-->
                 <li>
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <input type="submit" value="Logout" class="logout-button"/>
-                <form>
+                    <a class="nav-link" href="{{ url('/logout') }}"> logout </a>
                 </li>
-
-
-
             </ul>
         @endauth
-
         @guest
             <ul class="navbar-nav">
                 <li class="nav-item active">
@@ -109,9 +100,6 @@
                 </li>
             </ul>
         @endguest
-
-
-
     </div>
 </nav>
 

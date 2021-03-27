@@ -1,12 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\CompanyPresentation;
 use Illuminate\Http\Request;
 use App\Http\Helpers\ClsCompany;
 use App\Http\Helpers\ClsPresentation;
-use Illuminate\Routing\Redirector;
+use App\Http\Controllers\Redirect;
+
 
 class CompanyPresentationController extends Controller
 {
@@ -30,7 +29,9 @@ class CompanyPresentationController extends Controller
             return redirect()->action([CompanyPresentationController::class, 'create']);
             //return $this->create(); //se poate si asa in acelasi controller
         } else {
-            return redirect()->action([CompanyPresentationController::class, 'update']);
+            //return redirect()->action([CompanyPresentationController::class, 'edit']);
+            //return $presentation;
+            return view('company.Presentation', ['presentation' => $presentation]);
         }
         //return $companyJobs;
        // return view('company.Presentation', ['presentation' => $presentation]);
@@ -63,8 +64,13 @@ class CompanyPresentationController extends Controller
                     'company_id' => $company_id,
                     'company_name' => $company_name
                 ]);
+
+            
+            
         } else {
-            return redirect()->action('CompanyPresentation@update');
+            //return 'exista deja';
+            //return redirect()->action('CompanyPresentationController@edit');
+            return $this->edit();
         }
         
         // return  $company_name;
@@ -80,6 +86,7 @@ class CompanyPresentationController extends Controller
     public function store(Request $request)
     {
         // Save the data
+        
         $request->request->add(['enabled' => false]);
         $request->request->add(['activated' => false]);
         $request->request->add(['paid' => false]);
@@ -88,6 +95,8 @@ class CompanyPresentationController extends Controller
         $input = $request->all();
         CompanyPresentation::create($input);
         return redirect()->back();
+        
+        //return "sunt in store";
     }
 
     /**
@@ -107,7 +116,7 @@ class CompanyPresentationController extends Controller
      * @param  \App\Models\CompanyPresentation  $companyPresentation
      * @return \Illuminate\Http\Response
      */
-    public function edit(CompanyPresentation $companyPresentation)
+    public function edit()
     {
         // daca se incearca crearea si exista atunci se editeaza si se cheama functia update
         // the form to edit the company data
@@ -130,6 +139,7 @@ class CompanyPresentationController extends Controller
      */
     public function update(Request $request)
     {
+        
         $company = CompanyPresentation::Find($request->id);
         $company->company_name = $request->company_name;
         $company->company_description = $request->company_description;
@@ -137,9 +147,15 @@ class CompanyPresentationController extends Controller
         $company->company_management_team = $request->company_management_team;
         $company->company_address = $request->company_address;
         $company->company_contact = $request->company_contact;
-        $company->save();
+        $company->enabled = 1;
+        $company->activated = 0;
+        $company->paid = 0;
+        $company->published = 0;
 
+        $company->save();
+        
         $message = 'Modificarile au fost salvate!';
+        // return $message;
         return view('company.Presentation', ['presentation' => $company, 'message' => $message]);
     }
 

@@ -21,5 +21,17 @@ class ClsCompany
 
         // return 'sunt in clasa clsCompanies in retrieveCompanyId';
     }
+
+    public function retrieveDataCompanyById($userId)
+    {
+
+
+        $company = Company::all()->where('user_id',$userId)->first();
+
+
+        return $company;
+
+        // return 'sunt in clasa clsCompanies in retrieveCompanyId';
+    }
 }
 ?>

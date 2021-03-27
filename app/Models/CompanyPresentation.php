@@ -16,10 +16,9 @@ class CompanyPresentation extends Model
         'company_management_team',
         'company_address',
         'company_contact',
-        'enabled',
+        'enable',
         'activated',
         'paid',
         'published',
-        'deleted'
     ];
 }

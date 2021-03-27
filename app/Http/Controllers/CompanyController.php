@@ -36,12 +36,42 @@ class CompanyController extends Controller
         // Aduce forma in care se salveaza datele companiei
         //return 'controller';
 
-        // Verifica daca exista deja o prezentare
+        // Verifica daca datele companiei au fost introduse
         // Daca exista atunci cheama update
 
 
-        $currentUser = auth()->id();
+        $userId = auth()->id();
+        //--------
+        $clsCompany = new ClsCompany();
+        $userId = auth()->id();
+        $company = $clsCompany->retrieveCompanyId($userId);
+        $company_id = $company->id;
+        $company_name = $company->company_name;
+        //return $company;
+        //$clsPresentationCompany = new ClsPresentation();
+        //$presentation = $clsPresentationCompany->presentationByCompanyId($company_id);
+        
+        if ($company==""){
+            return 'nu exista';
+            /*
+            return view(
+                'company.createPresentationsCompany',
+                [
+                    'user_id' => $userId,
+                    'company_id' => $company_id,
+                    'company_name' => $company_name
+                ]);
 
+            */
+            
+        } else {
+            //return 'exista deja';
+            //return redirect()->action('CompanyController@edit');
+            return $this->edit();
+        }
+
+        
+        //--------
         
         return view('company.createCompany', ['currentUser' => $currentUser]);
         // modification
@@ -128,5 +158,13 @@ class CompanyController extends Controller
     public function destroy(Company $company)
     {
         //
+    }
+
+
+    public function logout () {
+        //logout user
+        auth()->logout();
+        // redirect to homepage
+        return redirect('/');
     }
 }

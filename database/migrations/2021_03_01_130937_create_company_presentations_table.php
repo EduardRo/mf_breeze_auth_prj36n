@@ -22,7 +22,7 @@ class CreateCompanyPresentationsTable extends Migration
             $table->text('company_management_team');
             $table->text('company_address');
             $table->text('company_contact');
-            $table->boolean('enabled')->default(1);
+            $table->boolean('enabled')->default(false);
             $table->boolean('activated')->nullable();
             $table->boolean('paid')->nullable();
             $table->boolean('published')->nullable();
