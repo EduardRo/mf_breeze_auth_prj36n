@@ -9,17 +9,18 @@
         <div class="col-md-12 mt-5">
             <div class="card">
                 <div class="card-header bg-info">
-                    <h6 class="text-white">Introduceti prezentarea companiei</h6>
+                    <h6 class="text-white">Introduceti prezentarea companiei {{$company_name}}</h6>
                 </div>
                 <div class="card-body">
                     <form class="image-upload" method="post" action="/companypresentation/store" enctype="multipart/form-data">
                         @csrf
                         <input name="user_id"  value="{{$user_id}}" rows="15" cols="40" class="form-control" hidden/>
                         <input name="company_id"  value="{{$company_id}}" rows="15" cols="40" class="form-control" hidden />
+                        <input name="company_name"  value="{{$company_name}}" rows="15" cols="40" class="form-control" hidden />
                         
                         <div class="form-group">
                             <label>Nume Companie:</label>
-                            <input name="company_name"  value="{{$company_name}}" rows="15" cols="40" class="form-control" />
+                            <input name="company_name_show"  value="{{$company_name}}"  class="form-control" disabled />
                         </div>
                         <div class="form-group">
                             <label>Descriere:</label>

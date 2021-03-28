@@ -17,4 +17,18 @@ class ClsPresentation
         return $thejob;
 
     }
+
+    // find the presentation not paid not published
+    public function presentationNotPaidNotPublished($companyId)
+    {
+        $presentation = CompanyPresentation::all()
+        ->where('company_id',$companyId)
+        ->where('company_id', $companyId)
+        ->where('activate', false)
+        ->where('paid', false)
+        ->where('published', false)
+        ->first();
+
+        return $presentation;
+    }
 }

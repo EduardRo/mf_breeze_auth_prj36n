@@ -50,6 +50,8 @@ Route::get('/companypresentation/create', [CompanyPresentationController::class,
 Route::post('/companypresentation/store', [CompanyPresentationController::class, 'store'])->middleware(['auth']);
 Route::get('/companypresentation/edit', [CompanyPresentationController::class, 'edit']);
 Route::post('/companypresentation/update', [CompanyPresentationController::class, 'update']);
+Route::get('/companypresentation/publishing', [CompanyPresentationController::class, 'publishing']);
+Route::get('/companypresentation/publishing/{id}', [CompanyPresentationController::class, 'show']);
 
 // pressReleases
 Route::get('/pressreleases', [CompanyPressreleaseController::class, 'index']);

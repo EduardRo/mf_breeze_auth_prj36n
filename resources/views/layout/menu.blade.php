@@ -68,7 +68,7 @@
                     Publicare
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/gpresentation/publishing">Publicare Prezentare</a>
+                    <a class="dropdown-item" href="/companypresentation/publishing">Publicare Prezentare</a>
                     <a class="dropdown-item" href="/pressrelease/publishing">Publicare Comunicat de Presa</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/job/publishing">Publicare Job</a>

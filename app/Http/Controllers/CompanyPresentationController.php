@@ -31,7 +31,7 @@ class CompanyPresentationController extends Controller
         } else {
             //return redirect()->action([CompanyPresentationController::class, 'edit']);
             //return $presentation;
-            return view('company.Presentation', ['presentation' => $presentation]);
+            return view('company.CompanyPresentation', ['presentation' => $presentation]);
         }
         //return $companyJobs;
        // return view('company.Presentation', ['presentation' => $presentation]);
@@ -94,7 +94,9 @@ class CompanyPresentationController extends Controller
         $request->request->add(['deleted' => false]);
         $input = $request->all();
         CompanyPresentation::create($input);
-        return redirect()->back();
+        $message = 'Presentarea companiei a fost salvata!';
+        return view('company.CompanyPresentation', ['presentation' => $request, 'message' => $message]);
+       //return redirect()->back();
         
         //return "sunt in store";
     }
@@ -107,7 +109,12 @@ class CompanyPresentationController extends Controller
      */
     public function show($id)
     {
-        //
+        // activated devine yes
+        // verificare abonament sau produs
+        // daca exista atunci se publica
+        // daca nu exista atunci se afiseaza posibilitatile si se cumpara.
+        
+        return 'show ' . $id;
     }
 
     /**
@@ -156,7 +163,7 @@ class CompanyPresentationController extends Controller
         
         $message = 'Modificarile au fost salvate!';
         // return $message;
-        return view('company.Presentation', ['presentation' => $company, 'message' => $message]);
+        return view('company.CompanyPresentation', ['presentation' => $company, 'message' => $message]);
     }
 
     /**
@@ -168,5 +175,27 @@ class CompanyPresentationController extends Controller
     public function destroy(CompanyPresentation $companyPresentation)
     {
         //
+    }
+
+
+    public function publishing()
+    {
+        // show the Press releases created but not send for publishing
+
+
+        $clsCompany = new ClsCompany();
+        $userId = auth()->id();
+
+        $company = $clsCompany->retrieveCompanyId($userId);
+        $companyId = $company->id;
+        $clsPresentation = new ClsPresentation;
+        
+        $presentationNotPublished = $clsPresentation->presentationNotPaidNotPublished($companyId);
+        //return $presentationNotPublished;
+
+        // trebuie sa verifice daca nu este publicata deja
+
+        // daca nu este, este afisata
+        return view('company.publishingCompanyPresentation', ['presentationNotPublished' => $presentationNotPublished]);
     }
 }

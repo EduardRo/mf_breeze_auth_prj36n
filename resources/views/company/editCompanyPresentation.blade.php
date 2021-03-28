@@ -20,11 +20,13 @@
                                 <input name="id" value={{ $presentation->id }} class="form-control" hidden />
                                 <input name="company_id" value={{ $presentation->company_id }} class="form-control"
                                     hidden />
+                                <input name="company_name" value={{ $presentation->company_name }} class="form-control"
+                                    hidden />
                             </div>
                             <div class="form-group">
                                 <label>Nume Companie:</label>
 
-                                <input name="company_name" value="{{ $presentation->company_name }}" disabled
+                                <input name="company_name_title" value="{{ $presentation->company_name }}" disabled
                                     class="form-control" />
                             </div>
                             <div class="form-group">

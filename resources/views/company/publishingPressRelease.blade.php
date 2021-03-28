@@ -1,6 +1,6 @@
 @extends('layout.menu')
 @section('content')
-<h1>ublishing</h1>
+<h1>Comunicate de Presa - Publicare</h1>
 <div class="card-body grid gap-2 grid-cols-1">
 @if ($pressReleasedNotPublished)
     @foreach( $pressReleasedNotPublished as $pressRelease)
