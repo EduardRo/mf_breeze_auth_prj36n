@@ -15,13 +15,16 @@ class CreateSubscriptionsTable extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->integer('service_id');
-            $table->text('subscription_name');
+            $table->string('subscription_name');
             $table->text('subscription_description');
-            $table->string('service_category');
-            $table->string('service_quantity');
-            $table->float('subscription_price_eur', 10, 2);
-            $table->float('subscription_price', 10, 2);
+            $table->string('subscription_category');
+            $table->string('subscription_category_name');
+            $table->string('subscription_category_description');
+            $table->string('type');
+            $table->string('subscription_quantity');
+            $table->float('rate_eur_ron',5,4);
+            $table->float('subscription_price_eur', 5, 2);
+            $table->float('subscription_price_ron', 5, 2);
             $table->timestamps();
         });
     }
