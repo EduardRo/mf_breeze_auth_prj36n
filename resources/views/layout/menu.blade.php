@@ -76,7 +76,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/subscriptionandservices">Abonamente si
+                <a class="nav-link active" aria-current="page" href="/subscriptions">Abonamente si
                     servicii</a>
             </li>
 

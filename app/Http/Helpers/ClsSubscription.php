@@ -4,6 +4,7 @@ namespace App\Http\Helpers;
 
 use function PHPUnit\Framework\empty;
 use App\Models\CompanySubscription;
+use App\Models\Subscription;
 
 class ClsSubscription
 {
@@ -15,6 +16,17 @@ class ClsSubscription
             return '';
         } else {
             return $subscriptionExist;
+        }
+    }
+
+    public function subscriptionDataByName($subscriptionName)
+    { 
+        // find the subscription using the name
+        $subscription = Subscription::all()->where('subscription_name', $subscriptionName)->first();
+        if (empty($subscription)) {
+            return '';
+        } else {
+            return $subscription;
         }
     }
 

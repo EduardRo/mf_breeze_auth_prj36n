@@ -10,14 +10,18 @@ class CompanySubscription extends Model
     //use HasFactory;
     protected $fillable = [
         'company_id',
-        'subscription_code',
+        'subscription_id',
+        'subscription_name',
         'subscription_category',
+        'subscription_type',
         'quantity_now',
         'quantity_before',
         'used_for',
-        'service_id',
         'subscription_invoice',
-        'subscription_price',
+        'subscription_price_eur',
+        'subscription_price_ron',
+        'activated',
+        'paid',
         'valid',
 
 

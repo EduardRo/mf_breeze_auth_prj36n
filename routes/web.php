@@ -81,9 +81,13 @@ Route::get('/project/{id}', [CompanyProjectController::class, 'show']);
 Route::get('/invoice',[InvoiceController::class, 'index']);
 
 //acquisition
-Route::get('/acquisition',[AcquisitionController::class, 'index']);
+Route::post('/acquisition/store',[AcquisitionController::class, 'store']);
+
+Route::get('/acquisition/{code}',[AcquisitionController::class, 'index']);
+
 
 // Subscriptions
+// pagina de prezentare a produselor - prezentare companie - comunicate de presa - jobs
 
 Route::get('/subscriptions',[SubscriptionController::class, 'index']);
 

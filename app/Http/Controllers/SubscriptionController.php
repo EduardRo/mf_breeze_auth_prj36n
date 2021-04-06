@@ -15,7 +15,8 @@ class SubscriptionController extends Controller
     public function index()
     {
         // return 'Subscription';
-        return view('offers.Subscriptions');
+        // subscrti
+        return view('company.Subscriptions');
     }
 
     /**
