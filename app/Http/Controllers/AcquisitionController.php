@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\CompanySubscription;
 use App\Http\Helpers\ClsSubscription;
 use App\Http\Helpers\ClsInvoice;
+use App\Http\Helpers\ClsBusiness;
+use App\Http\Helpers\ClsCompany;
 
 class AcquisitionController extends Controller
 {
@@ -57,18 +59,34 @@ class AcquisitionController extends Controller
      */
     public function store(Request $request)
     { 
-        //create invoice
-        $clsInvoice = new ClsInvoice();
-        $company = $clsInvoice->createInvoice();
-        return $company;
+        //current user
+        $userId = auth()->id();
+        //bring company data
+        $clsCompany = new ClsCompany();
+        $company = $clsCompany->retrieveDataCompanyById($userId);
+        //return $company;
 
-/*
-        //return $request->subscriptionName;
+        //bring business data
+        $clsBusiness = new ClsBusiness();
+        $business=$clsBusiness->businessData();
+        //return $business;
+
+        
+        // se preia abonamentul
+        // bring subscription data
         $clsSubscription= new ClsSubscription();
         $subscription = $clsSubscription->subscriptionDataByName($request->subscriptionName);
         //return $subscription;
-        // se creaza factura Proforma
+        // se creaza factura serie si numar Proforma
+        $clsInvoice = new ClsInvoice();
+        $invoiceSerieNumber= $clsInvoice->createInvoiceSerieNumberDate($subscription->subscription_name,$subscription->subscription_category,$company->id);
+        return "Seria: " .$invoiceSerieNumber[0] . "-" . $invoiceSerieNumber[1] . "-" . $invoiceSerieNumber[2];
+        // creaza seria
+
+
+
         
+    /*        
         // Se salveaza abonamentul in company_subscriptions
         $request->request->add(['company_id' => 22]);
         $request->request->add(['subscription_id' => 33]);
@@ -91,7 +109,7 @@ class AcquisitionController extends Controller
 
         // Se creaza factura proforma
        // return $request->subscriptionName;
-  */      
+    */      
     }
 
     /**

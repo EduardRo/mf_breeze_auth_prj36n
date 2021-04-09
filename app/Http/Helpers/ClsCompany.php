@@ -33,5 +33,15 @@ class ClsCompany
 
         // return 'sunt in clasa clsCompanies in retrieveCompanyId';
     }
+
+    public function companyData()
+    {
+        // give data of the current user
+
+
+      
+
+        // return 'sunt in clasa clsCompanies in retrieveCompanyId';
+    }
 }
 ?>
