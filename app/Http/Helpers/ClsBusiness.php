@@ -14,7 +14,7 @@ class ClsBusiness
     {
 
 
-        $business = Business::all()->where('valabil',1);
+        $business = Business::all()->where('valabil',1)->first();
 
 
         return $business;
