@@ -33,6 +33,8 @@ class CreateInvoicesTable extends Migration
             $table->string('invoice_supplier_city');
             $table->text('invoice_supplier_address');
             $table->string('invoice_supplier_region');
+            $table->boolean('valabil')->default(false);
+            $table->boolean('paid')->default(false);
             $table->timestamps();
         });
     }

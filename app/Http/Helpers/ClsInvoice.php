@@ -77,4 +77,13 @@ class ClsInvoice
 
         return array($serie, $nr, $data);
     }
+
+
+    public function findSerieNoOfInvoiceById($id) {
+        // return the invoice serie and number based on id
+
+        $InvoiceSerie = Invoice::select('id','invoice_serie', 'invoice_number')->where('id',$id)->first();
+        return $InvoiceSerie;
+
+    }
 }

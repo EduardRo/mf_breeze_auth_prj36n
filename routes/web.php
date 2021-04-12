@@ -79,6 +79,7 @@ Route::get('/project/{id}', [CompanyProjectController::class, 'show']);
 
 //invoice
 Route::get('/invoice',[InvoiceController::class, 'index']);
+Route::get('/invoice/{invoiceId}',[InvoiceController::class, 'show']);
 
 //acquisition
 Route::post('/acquisition/store',[AcquisitionController::class, 'store']);

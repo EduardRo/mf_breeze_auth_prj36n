@@ -72,8 +72,8 @@ class CompanyController extends Controller
 
         
         //--------
-        
-        return view('company.createCompany', ['currentUser' => $currentUser]);
+        //??????????????????
+        return view('company.createCompany', ['currentUser' => $userId]);
         // modification
     }
 

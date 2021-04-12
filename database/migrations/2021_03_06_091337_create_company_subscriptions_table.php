@@ -23,12 +23,13 @@ class CreateCompanySubscriptionsTable extends Migration
             $table->integer('quantity_now')->default(0);
             $table->integer('quantity_before')->default(0);
             $table->string('used_for')->default('');
-            $table->string('subscription_invoice')->default('');
-            $table->float('subscription_price_eur')->default(0);
-            $table->float('subscription_price_ron')->default(0);
-            $table->boolean('activated')->default(0);
-            $table->boolean('paid')->default(0);
-            $table->boolean('valid')->default(0);
+            $table->string('subscription_invoice_id')->default('');
+            $table->string('subscription_invoice_serie_number')->default('');
+            $table->float('subscription_price_eur')->default(0.00);
+            $table->float('subscription_price_ron')->default(0.00);
+            $table->boolean('activated')->default(false);
+            $table->boolean('paid')->default(false);
+            $table->boolean('valid')->default(false);
 
             $table->timestamps();
         });

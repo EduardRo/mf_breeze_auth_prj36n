@@ -18,9 +18,11 @@ class CreateInvoiceBodiesTable extends Migration
             $table->integer('invoice_id');
             $table->string('invoice_description');
             $table->string('invoice_unit_type');
-            $table->float('invoice_unit_price', 10, 2);
+            $table->string('invoice_unit_price');
             $table->float('invoice_quantity', 10, 2);
             $table->float('invoice_amount', 10, 2);
+            $table->float('invoice_vat', 10, 2);
+            $table->float('invoice_amount_with_vat', 10, 2);
             $table->timestamps();
         });
     }

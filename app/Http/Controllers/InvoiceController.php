@@ -83,9 +83,9 @@ class InvoiceController extends Controller
      * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoice $invoice)
+    public function show($invoiceId)
     {
-        //
+        return $invoiceId;
     }
 
     /**
