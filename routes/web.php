@@ -37,6 +37,16 @@ require __DIR__ . '/auth.php';
 // Company
 Route::get('/logout', [CompanyController::class, 'logout']);
 
+
+
+// verifica daca exista user
+// trebuie sa-i directionez catre pagina de inregistrare 
+// deocamdata au doar posibilitatea de login
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('/company', [CompanyController::class, 'index']);
 Route::get('/company/create', [CompanyController::class, 'create']);
 Route::post('/company/store', [CompanyController::class, 'store']);
@@ -57,14 +67,14 @@ Route::get('/companypresentation/publishing/{id}', [CompanyPresentationControlle
 Route::get('/pressreleases', [CompanyPressreleaseController::class, 'index']);
 
 Route::get('/pressrelease/publishing', [CompanyPressReleaseController::class, 'publishing']);
-Route::get('/pressrelease/publishing/{id}',[CompanyPressReleaseController::class,'activation']);
-Route::get('/pressrelease/edit/{id}',[CompanyPressReleaseController::class, 'edit']);
+Route::get('/pressrelease/publishing/{id}', [CompanyPressReleaseController::class, 'activation']);
+Route::get('/pressrelease/edit/{id}', [CompanyPressReleaseController::class, 'edit']);
 Route::get('/pressrelease/create', [CompanyPressReleaseController::class, 'create']);
 Route::get('/pressrelease/{id}', [CompanyPressReleaseController::class, 'show']);
 Route::post('/pressrelease/store', [CompanyPressReleaseController::class, 'store']);
 
 // jobs
-Route::get('/jobs', [CompanyJobController::class, 'index']);
+Route::get('/jobs', [CompanyJobController::class, 'index'])->middleware(['auth'])->name('dashboard');
 Route::get('/job/publishing', [CompanyJobController::class, 'create']);
 Route::get('/job/create', [CompanyJobController::class, 'create']);
 Route::post('/job/store', [CompanyJobController::class, 'store']);
@@ -78,23 +88,23 @@ Route::post('/project/store', [CompanyProjectController::class, 'store']);
 Route::get('/project/{id}', [CompanyProjectController::class, 'show']);
 
 //invoice
-Route::get('/invoice',[InvoiceController::class, 'index']);
-Route::get('/invoice/{invoiceId}',[InvoiceController::class, 'show']);
+Route::get('/invoice', [InvoiceController::class, 'index']);
+Route::get('/invoice/{invoiceId}', [InvoiceController::class, 'show']);
 
 //acquisition
-Route::post('/acquisition/store',[AcquisitionController::class, 'store']);
+Route::post('/acquisition/store', [AcquisitionController::class, 'store']);
 
-Route::get('/acquisition/{code}',[AcquisitionController::class, 'index']);
+Route::get('/acquisition/{code}', [AcquisitionController::class, 'index']);
 
 
 // Subscriptions
 // pagina de prezentare a produselor - prezentare companie - comunicate de presa - jobs
 
-Route::get('/subscriptions',[SubscriptionController::class, 'index']);
+Route::get('/subscriptions', [SubscriptionController::class, 'index']);
 
 
 // Services 
-Route::get('/services',[ServiceController::class, 'index']);
+Route::get('/services', [ServiceController::class, 'index']);
 
 // Subscription and Services
-Route::get('/subscriptionsandservices',[SubscriptionAndServiceController::class, 'index']);
+Route::get('/subscriptionsandservices', [SubscriptionAndServiceController::class, 'index']);

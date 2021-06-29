@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div id="showimages"></div>
                 </div>
-                <div class="col-md-6 offset-3 mt-5">
+                <div class="col-md-12 mt-5">
                     <div class="card">
                         <div class="card-header bg-info">
                             <h6 class="text-white">Anunt Job</h6>
@@ -88,26 +88,13 @@
                 </div>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" type="text/javascript">
-        </script>
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-        <script type="text/javascript">
-            tinymce.init({
-                selector: 'textarea.tinymce-editor',
-                height: 100,
-                menubar: false,
-                plugins: [
-                    'advlist autolink lists link image charmap print preview anchor',
-                    'searchreplace visualblocks code fullscreen',
-                    'insertdatetime media table paste code help wordcount'
-                ],
-                toolbar: 'undo redo | formatselect | ' +
-                    'bold italic backcolor | alignleft aligncenter ' +
-                    'alignright alignjustify | bullist numlist outdent indent | ' +
-                    'removeformat | help',
-                content_css: '//www.tiny.cloud/css/codepen.min.css'
-            });
+        <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace('job_description');
+            CKEDITOR.replace('job_responsabilities');
+            CKEDITOR.replace('job_offer');
+            CKEDITOR.replace('job_things_nice_to_have');
+            CKEDITOR.replace('job_skills');
 
         </script>
     </body>

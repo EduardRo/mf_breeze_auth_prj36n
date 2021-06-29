@@ -7,7 +7,7 @@
                 <div class="col-md-12">
                     <div id="showimages"></div>
                 </div>
-                <div class="col-md-6 offset-3 mt-5">
+                <div class="col-md-12 mt-5">
                     <div class="card">
                         <div class="card-header bg-info">
                             <h6 class="text-white">Comunicat de presa nou</h6>
