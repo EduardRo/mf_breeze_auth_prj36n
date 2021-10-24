@@ -30,7 +30,7 @@ class CreateCompanyPressReleasesTable extends Migration
             $table->string('title');
             $table->text('text');
             $table->boolean('enabled');
-            $table->boolean('activate');
+            $table->boolean('activated');
             $table->boolean('paid');
             $table->boolean('published');
             $table->timestamps();

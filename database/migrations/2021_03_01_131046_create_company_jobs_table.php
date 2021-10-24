@@ -28,6 +28,9 @@ class CreateCompanyJobsTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->boolean('enabled');
+            $table->boolean('activated');
+            $table->boolean('paid');
+            $table->boolean('published');
             $table->timestamps();
         });
     }
