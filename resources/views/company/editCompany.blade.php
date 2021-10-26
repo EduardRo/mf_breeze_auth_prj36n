@@ -61,7 +61,7 @@
                                 <input type="text" name="company_bank_account" value="{{$company->company_bank_account}}" class="form-control"/>
                             </div>
                             <div class="form-group text-center">
-                                <button type="submit" class="btn btn-danger btn-sm">Salveaza</button>
+                                <button type="submit" class="btn btn-primary btn-lg">Salveaza</button>
                             </div>
                         </form>
                     </div>

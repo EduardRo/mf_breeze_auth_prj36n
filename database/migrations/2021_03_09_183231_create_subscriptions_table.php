@@ -25,6 +25,7 @@ class CreateSubscriptionsTable extends Migration
             $table->float('rate_eur_ron',5,4);
             $table->float('subscription_price_eur', 5, 2);
             $table->float('subscription_price_ron', 5, 2);
+            $table->boolean('enabled');
             $table->timestamps();
         });
     }

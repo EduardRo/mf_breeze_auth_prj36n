@@ -56,8 +56,8 @@ class CompanyPressReleaseController extends Controller
     public function store(Request $request)
     {
         // Save the data
-        $request->request->add(['enabled' => false]);
-        $request->request->add(['activate' => false]);
+        $request->request->add(['enabled' => true]);
+        $request->request->add(['activated' => false]);
         $request->request->add(['paid' => false]);
         $request->request->add(['published' => false]);
         $input = $request->all();

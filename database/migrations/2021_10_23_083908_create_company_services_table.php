@@ -18,7 +18,7 @@ class CreateCompanyServicesTable extends Migration
             $table->integer('company_id');
             $table->integer('service_id');
             $table->string('service_quantity');
-            $table->integer('valid');
+            $table->integer('enabled');
             $table->timestamps();
         });
     }

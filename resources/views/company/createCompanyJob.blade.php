@@ -16,6 +16,17 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
+                                    @if ($errors->any())
+                                    
+                                    <div class="alert alert-danger">
+                                        <p>Campuri obligatorii nu au fost competate corect:</p>
+                                    <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                    </ul>
+                                    </div>
+                                    @endif
 
                                     <label>Company Id: {{ $company_id }}</label>
                                     <input type="text" value={{ $company_id }} name="title" class="form-control" hidden />
@@ -42,6 +53,9 @@
                                     <label>Descriere job</label>
                                     <textarea name="job_description" rows="15" cols="40"
                                         class="form-control tinymce-editor"></textarea>
+                                        @if($errors->has('job_description'))
+                                        <span class="text-danger">{{ $errors->first('job_description') }}</span>
+                                        @endif
                                 </div>
                                 <div class="form-group">
                                     <label>Responsabilitati</label>

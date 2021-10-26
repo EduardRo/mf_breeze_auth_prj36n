@@ -26,6 +26,7 @@ class CreateServicesTable extends Migration
             $table->float('service_discount_percent', 10, 2);
             $table->float('service_discount_amount', 10, 2);
             $table->text('service_price_description');
+            $table->boolean('enabled');
             $table->timestamps();
         });
     }

@@ -27,10 +27,10 @@ class CreateCompanyJobsTable extends Migration
             $table->text('job_offer')->default('');
             $table->string('email');
             $table->string('phone');
-            $table->boolean('enabled');
-            $table->boolean('activated');
-            $table->boolean('paid');
-            $table->boolean('published');
+            $table->boolean('enabled')->default(1);
+            $table->boolean('activated')->default(0);
+            $table->boolean('paid')->default(0);
+            $table->boolean('published')->default(0);
             $table->timestamps();
         });
     }

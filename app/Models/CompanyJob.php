@@ -11,6 +11,7 @@ class CompanyJob extends Model
     protected $fillable = [
         'company_id',
         'job_name',
+        'job_category',
         'job_type',
         'job_level',
         'job_description',
@@ -18,8 +19,12 @@ class CompanyJob extends Model
         'job_skills',
         'job_things_nice_to_have',
         'job_offer',
-        'enabled',
         'email',
         'phone',
+        'enabled',
+        'activated',
+        'paid',
+        'published',
+        
     ];
 }

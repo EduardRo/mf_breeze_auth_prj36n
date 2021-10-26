@@ -29,10 +29,10 @@ class CreateCompanyPressReleasesTable extends Migration
             $table->integer('company_id');
             $table->string('title');
             $table->text('text');
-            $table->boolean('enabled');
-            $table->boolean('activated');
-            $table->boolean('paid');
-            $table->boolean('published');
+            $table->boolean('enabled')->default(1);
+            $table->boolean('activated')->default(0);
+            $table->boolean('paid')->default(0);
+            $table->boolean('published')->default(0);
             $table->timestamps();
         });
     }

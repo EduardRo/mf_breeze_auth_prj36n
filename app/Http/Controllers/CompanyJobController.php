@@ -58,11 +58,28 @@ class CompanyJobController extends Controller
      */
     public function store(Request $request)
     {
+        // Validation
+        $validated = $request->validate([
+            'job_name' => 'required',
+            'job_type' => 'required',
+            'job_level' => 'required',
+            'job_description' => 'required',
+            
+        ]);
+
+            
+        
         // Save the data
-        $request->request->add(['enabled' => false]);
+
+        $request->request->add(['enabled' => true]);
+        $request->request->add(['activated' => false]);
+        $request->request->add(['paid' => false]);
+        $request->request->add(['published' => false]);
         $input = $request->all();
         CompanyJob::create($input);
-        return redirect()->back();
+   
+         return redirect()->back();
+        
     }
 
     /**
@@ -73,7 +90,17 @@ class CompanyJobController extends Controller
      */
     public function show($id)
     {
-        //
+        $customCompany = new ClsCompany();
+        $userId = auth()->id();
+
+        $company = $customCompany->retrieveCompanyId($userId);
+        $company_id = $company->id;
+        $company_name = $company->company_name;
+        $clsJobs = new ClsJobs;
+        $Job = $clsJobs->jobById($id);
+        
+        //return $companyJobs;
+        return view('company.Job', ['companyname' => $company_name, 'job' => $Job]);
     }
 
     /**
@@ -92,7 +119,7 @@ class CompanyJobController extends Controller
         $company_id = $company->id;
         $company_name = $company->company_name;
         $clsJobs = new ClsJobs;
-        $Job = $clsJobs->jobById($id);
+        $Job = $clsJobs->jobById($companyJob->id);
         //return $companyJobs;
         return view('company.Job', ['companyname' => $company_name, 'job' => $Job]);
         //return  $Job;

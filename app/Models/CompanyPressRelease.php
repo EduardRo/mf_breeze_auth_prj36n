@@ -13,7 +13,7 @@ class CompanyPressRelease extends Model
         'title',
         'text',
         'enabled',
-        'activate',
+        'activated',
         'paid',
         'published',
 

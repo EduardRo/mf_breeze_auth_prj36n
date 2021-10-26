@@ -45,26 +45,20 @@ class CompanyController extends Controller
         $clsCompany = new ClsCompany();
         $userId = auth()->id();
         $company = $clsCompany->retrieveCompanyId($userId);
-        $company_id = $company->id;
-        $company_name = $company->company_name;
+        
         //return $company;
         //$clsPresentationCompany = new ClsPresentation();
         //$presentation = $clsPresentationCompany->presentationByCompanyId($company_id);
         
         if ($company==""){
-            return 'nu exista';
-            /*
-            return view(
-                'company.createPresentationsCompany',
-                [
-                    'user_id' => $userId,
-                    'company_id' => $company_id,
-                    'company_name' => $company_name
-                ]);
-
-            */
+            //return 'nu exista';
+            // se creaza comania avand userul
+            return view('company.createCompany', ['currentUser' => $userId]);
+           
             
         } else {
+            $company_id = $company->id;
+            $company_name = $company->company_name;
             //return 'exista deja';
             //return redirect()->action('CompanyController@edit');
             return $this->edit();
@@ -73,7 +67,7 @@ class CompanyController extends Controller
         
         //--------
         //??????????????????
-        return view('company.createCompany', ['currentUser' => $userId]);
+        //return view('company.createCompany', ['currentUser' => $userId]);
         // modification
     }
 
