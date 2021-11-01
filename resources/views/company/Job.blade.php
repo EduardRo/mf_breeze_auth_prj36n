@@ -20,6 +20,8 @@
     <p>Ar fi bine sa cunosti: {!!$job->job_things_nice_to_have!!}</p>
     <p>Trimiteti CV la: {{$job->email}}</p>
     <p>Poti sa ne suni la: {{$job->phone}}</p>   
+    <a href="{{ url('/job/publishing/' . $job->id) }}" class="btn btn-lg btn-primary">Publica</a>
+    <a href="{{ url('/job/edit/' . $job->id) }}" class="btn btn-lg btn-primary">Modifica</a>
    
     
 </div>

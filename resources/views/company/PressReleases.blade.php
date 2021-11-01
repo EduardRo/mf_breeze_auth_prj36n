@@ -3,8 +3,9 @@
 
 <div class="card-body">
     <div class="container">
-        <h2>{{$companyname}}</h2>
-        <div class="row">
+        <h2 class="card-title text-uppercase text-muted mb-0">Comunicate de presa <span class="h2 font-weight-bold mb-0">
+            {{$companyname}}</span></h2>
+        <div class="row mt-5">
             <div class="col-xl-4 mb-5 col-lg-6">
                 <div class="card card-stats mb-4 mb-xl-0">
                     <div class="card-body">

@@ -75,7 +75,10 @@ Route::post('/pressrelease/store', [CompanyPressReleaseController::class, 'store
 
 // jobs
 Route::get('/jobs', [CompanyJobController::class, 'index'])->middleware(['auth'])->name('dashboard');
-Route::get('/job/publishing', [CompanyJobController::class, 'create']);
+Route::get('/job/publishing', [CompanyJobController::class, 'publishing']);
+Route::get('/job/publishing/{id}', [CompanyJobController::class, 'activation']);
+Route::get('/job/edit/{id}', [CompanyJobController::class, 'edit']);
+Route::post('/job/update', [CompanyJobController::class, 'update']);
 Route::get('/job/create', [CompanyJobController::class, 'create']);
 Route::post('/job/store', [CompanyJobController::class, 'store']);
 Route::get('/jobs/{id}', [CompanyJobController::class, 'show']);

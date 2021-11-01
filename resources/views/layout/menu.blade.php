@@ -39,13 +39,13 @@
                     aria-haspopup="true" aria-expanded="false">
                     Introducere date
                 </a>
-                <div class="dropdown-menu bg-dark text-light" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item bg-primary text-light" href="/company/create">Date Firma</a>
-                    <a class="dropdown-item bg-primary text-light" href="/companypresentation/create">Prezentare
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/company/create">Date Firma</a>
+                    <a class="dropdown-item" href="/companypresentation/create">Prezentare
                         Firma</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item bg-primary text-light" href="/pressrelease/create">Comunicate De Presa</a>
-                    <a class="dropdown-item bg-primary text-light" href="/job/create">Job-uri</a>
+                    <a class="dropdown-item" href="/pressrelease/create">Comunicate De Presa</a>
+                    <a class="dropdown-item" href="/job/create">Job-uri</a>
                 </div>
             </li>
 

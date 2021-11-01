@@ -77,8 +77,8 @@ class CompanyJobController extends Controller
         $request->request->add(['published' => false]);
         $input = $request->all();
         CompanyJob::create($input);
-   
-         return redirect()->back();
+        return dd($request);
+         //return redirect()->back();
         
     }
 
@@ -109,9 +109,10 @@ class CompanyJobController extends Controller
      * @param  \App\Models\CompanyJob  $companyJob
      * @return \Illuminate\Http\Response
      */
-    public function edit(CompanyJob $companyJob)
+    public function edit($Id)
     {
-        //
+        
+        //CompanyJob $companyJob
         $customCompany = new ClsCompany();
         $userId = auth()->id();
 
@@ -119,9 +120,10 @@ class CompanyJobController extends Controller
         $company_id = $company->id;
         $company_name = $company->company_name;
         $clsJobs = new ClsJobs;
-        $Job = $clsJobs->jobById($companyJob->id);
-        //return $companyJobs;
-        return view('company.Job', ['companyname' => $company_name, 'job' => $Job]);
+        $job = $clsJobs->jobById($Id);
+        
+        //return $Job;
+        return view('company.editJob', ['company' => $company, 'job' => $job]);
         //return  $Job;
     }
 
@@ -132,10 +134,60 @@ class CompanyJobController extends Controller
      * @param  \App\Models\CompanyJob  $companyJob
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CompanyJob $companyJob)
+    public function update(Request $request)
+    
     {
-        //
-        $variab='ddd';
+        $job = CompanyJob::Find($request->id);
+        $job->job_name = $request->job_name;
+        
+        $job->job_type = $request->job_type;
+        $job->job_level = $request->job_level;
+        $job->job_description = $request->job_description;
+        $job->job_responsabilities = $request->job_responsabilities;
+        $job->job_skills = $request->job_skills;
+        $job->job_things_nice_to_have = $request->job_things_nice_to_have;
+        $job->email = $request->email;
+        $job->phone = $request->phone;
+        $job->enabled = 1;
+        $job->activated = 0;
+        $job->paid = 0;
+        $job->published = 0;
+
+        $job->save();
+        $message = 'Modificarile au fost salvate!';
+        /*
+        $company = CompanyPresentation::Find($request->id);
+        $company->company_name = $request->company_name;
+        $company->company_description = $request->company_description;
+        $company->company_services = $request->company_services;
+        $company->company_management_team = $request->company_management_team;
+        $company->company_address = $request->company_address;
+        $company->company_contact = $request->company_contact;
+        $company->enabled = 1;
+        $company->activated = 0;
+        $company->paid = 0;
+        $company->published = 0;
+
+        $company->save();
+        
+        $message = 'Modificarile au fost salvate!';
+        // return $message;
+        */
+        //return view('company.Job', ['presentation' => $company, 'message' => $message]);
+
+        $customCompany = new ClsCompany();
+        $userId = auth()->id();
+
+        $company = $customCompany->retrieveCompanyId($userId);
+        $company_id = $company->id;
+        $company_name = $company->company_name;
+        
+        $clsJobs = new ClsJobs;
+        $job = $clsJobs->jobById($request->id);
+        return view('company.Job', ['companyname' => $company_name, 'job' => $job]);
+    
+        
+        //dd($request);
     }
 
     /**
@@ -147,5 +199,41 @@ class CompanyJobController extends Controller
     public function destroy(CompanyJob $companyJob)
     {
         //
+    }
+
+    public function publishing()
+    {
+        // show the Jobs created but not send for publishing
+
+
+        $clsCompany = new ClsCompany();
+        $userId = auth()->id();
+
+        $company = $clsCompany->retrieveCompanyId($userId);
+        $companyId = $company->id;
+        $companyName=$company->company_name;
+        $clsJobs = new ClsJobs;
+        
+        $jobsNotPaidNotPublished = $clsJobs->jobsNotPaidNotPublished($companyId);
+        //return $pressReleasedNotPublished;
+        //return $jobsNotPaidNotPublished;
+        return view('company.publishingJobs', ['companyname'=>$companyName,
+        'jobsNotPaidNotPublished' => $jobsNotPaidNotPublished]);
+    }
+
+    public function activation($jobId)
+    {
+        dd($jobId);
+        //Trebuie modificat pentru job (exempl8l este pentru press releases)
+        // activation - the procedure to verify the subscription or to create a proforma
+
+        //take the id of the company who made the PressRelesed
+        
+    
+
+       
+        
+        
+        //return 'Press Release Id: '. $pressReleaseId . 'Company Id: '. $companyId . $subscriptionExist ;
     }
 }
