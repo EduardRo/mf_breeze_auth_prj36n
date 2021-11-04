@@ -223,16 +223,27 @@ class CompanyJobController extends Controller
 
     public function activation($jobId)
     {
-        dd($jobId);
+        
         //Trebuie modificat pentru job (exempl8l este pentru press releases)
         // activation - the procedure to verify the subscription or to create a proforma
 
         //take the id of the company who made the PressRelesed
         
-    
+        $clsCompany = new ClsCompany();
+        $clsJobs = new ClsJobs();
+        $userId = auth()->id();
+        $company = $clsCompany->retrieveCompanyId($userId);
+        $verify = $clsJobs->jobVerifyOwner($jobId, $company->id);
+        //dd($verify);
+        if (!$verify){
+            return 'Acest anunt de job nu exista!';
+        }
+        $job = CompanyJob::Find($jobId);
+        $job->activated = 1;
+        $job->save();
 
-       
-        
+        // daca exista atunci se verifica abonamentul
+        return $company;
         
         //return 'Press Release Id: '. $pressReleaseId . 'Company Id: '. $companyId . $subscriptionExist ;
     }
