@@ -81,7 +81,7 @@
                         <div class="card-body">
                             <p class="card-text">Perioada: 1 and de zile</p>
                             <p class="card-text">Pret: 50 Eur fara T.V.A.</p>
-                            <a href="/acquisition/JOBCO01" class="btn btn-primary">Cumpar</a>
+                            <a href="/acquisition/JOB01" class="btn btn-primary">Cumpar</a>
                         </div>
                     </div>
                 </div>
@@ -113,8 +113,8 @@
                         <h3>Job-uri - 12 anunturi</h3>
                         <div class="card-body">
                             <p class="card-text">Perioada: 1 and de zile</p>
-                            <p class="card-text">Pret: 300 Eur fara T.V.A.</p>
-                            <a href="#" class="btn btn-primary">Cumpar</a>
+                            <p class="card-text">Pret: 500 Eur fara T.V.A.</p>
+                            <a href="/acquisition/JOB01" class="btn btn-primary">Cumpar</a>
                         </div>
                     </div>
                 </div>

@@ -98,6 +98,7 @@ Route::get('/invoice/{invoiceId}', [InvoiceController::class, 'show']);
 Route::post('/acquisition/store', [AcquisitionController::class, 'store']);
 
 Route::get('/acquisition/{code}', [AcquisitionController::class, 'index']);
+Route::get('/acquisition/invoice/{code}', [AcquisitionController::class, 'show']);
 
 
 // Subscriptions

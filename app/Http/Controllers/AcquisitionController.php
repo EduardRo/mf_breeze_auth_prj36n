@@ -41,7 +41,11 @@ class AcquisitionController extends Controller
 
 
 
-        return view('company.Acquisition', ['typeAcquisition' => $typeAcquisition, 'categoryAcquisition' => $categoryAcquisition, 'code' => $code, 'subscription' => $subscription]);
+        return view('company.Acquisition', [
+            'typeAcquisition' => $typeAcquisition, 
+            'categoryAcquisition' => $categoryAcquisition, 
+            'code' => $code, 
+            'subscription' => $subscription]);
     }
 
     /**
@@ -161,9 +165,14 @@ class AcquisitionController extends Controller
         $request->request->add(['subscription_invoice_serie_number' => $invoice_Serie_Number]);
         $request->request->add(['subscription_price_eur' => $subscription->subscription_price_eur]);
         $request->request->add(['subscription_price_ron' => $subscription->subscription_price_ron]);
-        $request->request->add(['subscription_activated' => false]);
-        $request->request->add(['subscription_paid' => false]);
-        $request->request->add(['subscription_valid' => false]);
+       
+        //$request->request->add(['subscription_paid' => false]);
+        //$request->request->add(['subscription_activated' => true]);
+        //$request->request->add(['subscription_enabled' => true]);
+        $request->request->add(['paid' => false]);
+        $request->request->add(['activated' => true]);
+        $request->request->add(['enabled' => true]);
+        $request->request->add(['published' => false]);
         
         $input = $request->all();
         CompanySubscription::create($input);

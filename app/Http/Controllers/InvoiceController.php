@@ -7,6 +7,11 @@ use App\Models\Business;
 use Illuminate\Http\Request;
 use App\Http\Helpers\ClsInvoice;
 use App\Http\Helpers\ClsCompany;
+use App\Http\Helpers\ClsSubscription;
+use App\Http\Helpers\ClsBusiness;
+
+// pentru inserarea de inregistrari - Facades\DB
+use Illuminate\Support\Facades\DB;
 
 class InvoiceController extends Controller
 {
@@ -85,7 +90,37 @@ class InvoiceController extends Controller
      */
     public function show($invoiceId)
     {
-        return $invoiceId;
+        // Arata factura
+        $clsCompany = new ClsCompany();
+        $userId = auth()->id();
+
+        $company = $clsCompany->retrieveCompanyId($userId);
+        $company_id = $company->id;
+        // Date furnizor;
+        $bussiness = Business::all()->where('valabil', 1)->first();
+
+        $clsInvoice = new ClsInvoice();
+        // am ales eu 1
+        //$servicesSerieNr=$clsInvoice->createInvoiceSerie(1);
+        //'invoice_serie', 'invoice_number'
+        
+        $invoice=$clsInvoice->findSerieNoOfInvoiceById($invoiceId);
+        $invoiceBody=$clsInvoice->findInvoiceBodyByInvoiceId($invoiceId);
+        $InvoiceSerieNr=[$invoice->invoice_serie , $invoice->invoice_number];
+        //$clsCompany = new ClsCompany();
+        //$company=$clsCompany::all();
+
+        
+
+        //return $clsInvoice->createInvoice();
+
+
+        return view('company.Invoice', [
+            'company' => $company, 
+            'business' => $bussiness, 
+            'InvoiceBody'=>$invoiceBody, 
+            'InvoiceSerie'=>$InvoiceSerieNr]);
+    
     }
 
     /**

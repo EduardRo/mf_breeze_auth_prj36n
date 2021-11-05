@@ -21,9 +21,11 @@ class CompanySubscription extends Model
         'subscription_invoice_serie_number',
         'subscription_price_eur',
         'subscription_price_ron',
+        'enabled',
         'activated',
         'paid',
-        'valid',
+        'published',
+        
 
 
     ];

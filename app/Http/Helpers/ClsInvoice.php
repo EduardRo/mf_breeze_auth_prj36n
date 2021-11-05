@@ -5,6 +5,7 @@ namespace App\Http\Helpers;
 use App\Models\Company;
 use App\Models\Service;
 use App\Models\Invoice;
+use App\Models\InvoiceBody;
 
 class ClsInvoice
 {
@@ -84,6 +85,13 @@ class ClsInvoice
 
         $InvoiceSerie = Invoice::select('id','invoice_serie', 'invoice_number')->where('id',$id)->first();
         return $InvoiceSerie;
+
+    }
+    public function findInvoiceBodyByInvoiceId($invoiceId) {
+        // return the invoice serie and number based on id
+
+        $InvoiceBody = InvoiceBody::all()->where('invoice_id',$invoiceId)->first();
+        return $InvoiceBody;
 
     }
 }

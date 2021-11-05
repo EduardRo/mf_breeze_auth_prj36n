@@ -17,8 +17,8 @@
             <div class="col invoice col-4 align-self-center">
                 <div class='seriedatafactura'>
                 <h2>Factura Proforma</h2>
-                <p>Serie si numar: {{$InvoiceSerie[0]}} - {{$InvoiceSerie[1]}}</p>
-                <p>Data factura: {{$InvoiceSerie[2]}}</p>
+                <p>Serie si numar: {{$InvoiceSerie[0]}}-{{$InvoiceSerie[1]}}</p>
+                <p>Data factura: </p>
                 </div>
             </div>
             <div class="col invoice col-4 align-self-end">
@@ -42,13 +42,13 @@
         </div>
         <div class="row invoice align-items-start">
             <div class="col invoice col-1 invoicebody">1</div>
-            <div class="col invoice col-4 invoicebody">{{$InvoiceBody[0]}}</div>
+            <div class="col invoice col-4 invoicebody">{{$InvoiceBody->invoice_description}}</div>
             <div class="col invoice col-1">buc</div>
             <div class="col invoice col-1">1</div>
             <div class="col invoice col-1">{{$InvoiceBody[1]}}</div>
-            <div class="col invoice col-1">{{$InvoiceBody[1]}}</div>
-            <div class="col invoice col-1">{{$InvoiceBody[2]}}</div>
-            <div class="col invoice col-2">{{$InvoiceBody[1]+$InvoiceBody[2]}}</div>
+            <div class="col invoice col-1">{{$InvoiceBody->invoice_amount}}</div>
+            <div class="col invoice col-1">{{$InvoiceBody->invoice_vat}}</div>
+            <div class="col invoice col-2">{{$InvoiceBody->invoice_amount+$InvoiceBody->invoice_vat}}</div>
         </div>
         <div class="row invoice align-items-start">
             <div class="col invoice col-8">Total</div>
