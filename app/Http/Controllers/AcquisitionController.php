@@ -72,13 +72,10 @@ class AcquisitionController extends Controller
         $clsCompany = new ClsCompany();
         $company = $clsCompany->retrieveDataCompanyById($userId);
         //return $company;
-
         //bring business data
         $clsBusiness = new ClsBusiness();
         $business = $clsBusiness->businessData();
         //return $business;
-
-
         // se preia abonamentul
         // bring subscription data
         $clsSubscription = new ClsSubscription();
@@ -96,6 +93,7 @@ class AcquisitionController extends Controller
         $invoice_amount_vat = $invoice_amount * 0.19;
         $invoice_total_amount = $invoice_amount + $invoice_amount_vat;
         $invoice = [
+            
             $invoiceSerieNumber[0],
             $invoiceSerieNumber[1],
             $company->company_name,
@@ -113,7 +111,9 @@ class AcquisitionController extends Controller
             $invoice_total_amount,
             $business->business_city,
             $business->business_address,
-            $business->business_region
+            $business->business_region,
+            $subscription->id
+
 
         ];
         $invoiceId = $this->saveInvoice($invoice);
@@ -137,21 +137,9 @@ class AcquisitionController extends Controller
         $invoiceIdBody = $this->saveInvoiceBody($invoiceBody);
         $invoiceSerieNumber=$clsInvoice->findSerieNoOfInvoiceById($invoiceId);
         $invoice_Serie_Number = $invoiceSerieNumber->invoice_serie . '-'.$invoiceSerieNumber->invoice_number;
-
-
-        
-        //return $business;
-        //return print_r($invoice);
-
-
-
         // Create the invoice proforma body
-
         // Save the company_subscription
-
-
-
-                
+         
         // Se salveaza abonamentul in company_subscriptions
         $request->request->add(['company_id' => 22]);
         $request->request->add(['subscription_id' => 33]);
@@ -236,11 +224,12 @@ class AcquisitionController extends Controller
         if (Invoice::where('invoice_number', $invoice[1] - 1)->exists()) {
             return 'factura exista';
         }
-
+        // creaza inregistrarea in tabela invoices si preia id-ul inregistrarii
 
         $id = DB::table('invoices')->insertGetId(
             [
-
+                'type'=>'Subscription',
+                'type_id'=>$invoice[18],
                 'invoice_serie' => $invoice[0],
                 'invoice_number' => $invoice[1],
                 'invoice_company_name' => $invoice[2],

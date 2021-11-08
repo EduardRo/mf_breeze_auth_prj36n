@@ -43,9 +43,9 @@ class InvoiceController extends Controller
 
         $clsInvoice = new ClsInvoice();
         // am ales eu 1
-        $servicesSerieNr=$clsInvoice->createInvoiceSerie(1);
-        
-        $invoiceBody=$clsInvoice->createInvoiceBodyByServiceId(1);
+        //$servicesSerieNr=$clsInvoice->createInvoiceSerie(1);
+        $invoices=$clsInvoice->allInvoices();
+        $invoicesBody=$clsInvoice->allInvoiceBodyByInvoiceId();
         //$clsCompany = new ClsCompany();
         //$company=$clsCompany::all();
 
@@ -53,12 +53,13 @@ class InvoiceController extends Controller
 
         //return $clsInvoice->createInvoice();
 
-
-        return view('company.Invoice', [
+        
+        return view('company.Invoices', [
             'company' => $company, 
             'business' => $bussiness, 
-            'InvoiceBody'=>$invoiceBody, 
-            'InvoiceSerie'=>$servicesSerieNr]);
+            'Invoices'=>$invoices,] 
+            );
+            
     }
 
     /**

@@ -1,6 +1,7 @@
 @extends('layout.menu')
 
 @section('content')
+<div class="container">
     <div class="card-body">
         <div class="card">
             <div class="card-header bg-info">
@@ -123,6 +124,7 @@
 
         </div>
     </div>
+</div>
 @endsection
 @section('content1')
 

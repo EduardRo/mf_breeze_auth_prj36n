@@ -94,4 +94,18 @@ class ClsInvoice
         return $InvoiceBody;
 
     }
+    public function allInvoiceBodyByInvoiceId() {
+        // return the invoice serie and number based on id
+
+        $InvoicesBody = InvoiceBody::all();
+        return $InvoicesBody;
+
+    }
+    public function allInvoices() {
+        // return the invoice serie and number based on id
+
+        $Invoices = Invoice::all();
+        return $Invoices;
+
+    }
 }
