@@ -1,9 +1,11 @@
 @extends('layout.menu')
 @section('content')
-<h1>Prezentare Companie - Publicare</h1>
+<div class="container">
+
 
 @if ($presentationNotPublished)
 <div class="card-body grid gap-2 grid-cols-1">
+    <h2>Prezentare Companie - Publicare</h2>
 <div class="card">
     <div class="card-header bg-info text-white" >{{$presentationNotPublished->company_name}}</div>
     <div class="box-border padding-2 md:box-content font-200 bg-blue-300 px-2 py-2">
@@ -34,5 +36,5 @@
     
 
 
-
+</div>
 @endsection

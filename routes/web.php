@@ -7,6 +7,7 @@ use App\Http\Controllers\CompanyPressReleaseController;
 use App\Http\Controllers\CompanyJobController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\AcquisitionController;
+use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubscriptionAndServiceController;
 use App\Http\Controllers\SubscriptionController;
@@ -112,3 +113,8 @@ Route::get('/services', [ServiceController::class, 'index']);
 
 // Subscription and Services
 Route::get('/subscriptionsandservices', [SubscriptionAndServiceController::class, 'index']);
+
+
+// Administrare
+
+Route::get('/administration',[AdministratorController::class,'index']);

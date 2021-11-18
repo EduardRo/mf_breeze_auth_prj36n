@@ -1,6 +1,6 @@
 @extends('layout.menu')
 @section('content')
-
+<div class="container">
     <div class="card-body grid gap-2 grid-cols-1">
         <div class="card">
             <div class="card-header bg-info">
@@ -29,10 +29,11 @@
                     
                 </div>
                 @isset($message)
-                    <h2 Style="background:rgb(93, 126, 141);color:rgb(255, 255, 255);padding:20px 0 20px 15px">{{$message}}</h2>
+                    <p Style="background:rgb(255, 255, 255);color:rgb(255, 0, 0);padding:20px 0 20px 15px">{{$message}}</p>
                 @endisset
             </div>
 
         </div>
     </div>
+</div>    
 @endsection

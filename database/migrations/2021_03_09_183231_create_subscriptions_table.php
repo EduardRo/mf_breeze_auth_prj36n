@@ -21,11 +21,10 @@ class CreateSubscriptionsTable extends Migration
             $table->string('subscription_category_name');
             $table->string('subscription_category_description');
             $table->string('type');
-            $table->string('subscription_quantity');
-            $table->float('rate_eur_ron',5,4);
-            $table->float('subscription_price_eur', 5, 2);
-            $table->float('subscription_price_ron', 5, 2);
+            $table->float('price_eur',7,2);
+            $table->float('price_ron',7,2);
             $table->boolean('enabled');
+            $table->integer('period');
             $table->timestamps();
         });
     }

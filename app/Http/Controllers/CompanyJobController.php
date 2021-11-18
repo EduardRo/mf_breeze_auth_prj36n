@@ -243,6 +243,7 @@ class CompanyJobController extends Controller
         $job->save();
 
         // daca exista atunci se verifica abonamentul
+        // se verifica daca exista in 
         return $company;
         
         //return 'Press Release Id: '. $pressReleaseId . 'Company Id: '. $companyId . $subscriptionExist ;
