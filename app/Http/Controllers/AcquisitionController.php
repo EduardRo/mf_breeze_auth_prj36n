@@ -81,6 +81,7 @@ class AcquisitionController extends Controller
         $clsSubscription = new ClsSubscription();
         $subscription = $clsSubscription->subscriptionDataByName($request->subscriptionName);
         //return $subscription;
+        //------------ Trebuie salvat abonamentul in companySubscription ----
         // se creaza factura serie si numar Proforma
         $clsInvoice = new ClsInvoice();
         $invoiceSerieNumber = $clsInvoice->createInvoiceSerieNumberDate($subscription->subscription_name, $subscription->subscription_category, $company->id);

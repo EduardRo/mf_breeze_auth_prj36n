@@ -14,9 +14,10 @@ class SubscriptionController extends Controller
      */
     public function index()
     {
-        // return 'Subscription';
-        // subscrti
-        return view('company.Subscriptions');
+        $subscriptions=Subscription::all();
+       //dd($subscription);
+
+        return view('company.Subscriptions',['subscriptions'=>$subscriptions]);
     }
 
     /**

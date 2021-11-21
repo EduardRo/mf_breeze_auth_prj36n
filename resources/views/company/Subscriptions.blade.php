@@ -75,51 +75,21 @@
             </div>
 
             <div class="box-border row">
+                @foreach($subscriptions as $subscription)
                 <div class="col-sm-3">
+                    
                     <div class="card" style="margin:10px;padding:5px">
                         <img src=" ..." class="card-img-top" alt="...">
-                        <h3>Job-uri - 1 anunt</h3>
+                        <h3>{{$subscription->subscription_name}}</h3>
                         <div class="card-body">
-                            <p class="card-text">Perioada: 1 and de zile</p>
-                            <p class="card-text">Pret: 50 Eur fara T.V.A.</p>
+                            <p class="card-text">Perioada: {{$subscription->period}} luni</p>
+                            <p class="card-text">{{$subscription->price_eur}} eur</p>
                             <a href="/acquisition/JOB01" class="btn btn-primary">Cumpar</a>
                         </div>
                     </div>
+                    
                 </div>
-                <div class="col-sm-3">
-                    <div class="card" style="margin:10px;padding:5px">
-                        <img src="..." class="card-img-top" alt="...">
-                        <h3>Job-uri - 3 anunturi</h3>
-                        <div class="card-body">
-                            <p class="card-text">Perioada: 1 and de zile</p>
-                            <p class="card-text">Pret: 300 Eur fara T.V.A.</p>
-                            <a href="#" class="btn btn-primary">Cumpar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card" style="margin:10px;padding:5px">
-                        <img src="..." class="card-img-top" alt="...">
-                        <h3>Job-uri - 6 anunturi</h3>
-                        <div class="card-body">
-                            <p class="card-text">Perioada: 1 and de zile</p>
-                            <p class="card-text">Pret: 300 Eur fara T.V.A.</p>
-                            <a href="#" class="btn btn-primary">Cumpar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="card" style="margin:10px;padding:5px">
-                        <img src="..." class="card-img-top" alt="...">
-                        <h3>Job-uri - 12 anunturi</h3>
-                        <div class="card-body">
-                            <p class="card-text">Perioada: 1 and de zile</p>
-                            <p class="card-text">Pret: 500 Eur fara T.V.A.</p>
-                            <a href="/acquisition/JOB01" class="btn btn-primary">Cumpar</a>
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
 
         </div>
