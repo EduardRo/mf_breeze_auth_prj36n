@@ -20,18 +20,18 @@
                 <div class="col invoice col-4 invoicebody">{{ $subscription->subscription_description }}</div>
                 <div class="col invoice col-1">buc</div>
                 <div class="col invoice col-1">1</div>
-                <div class="col invoice col-1">{{ $subscription->subscription_price_ron }}</div>
-                <div class="col invoice col-1">{{ $subscription->subscription_price_ron }}</div>
-                <div class="col invoice col-1">{{ round($subscription->subscription_price_ron * 0.19, 2) }}</div>
-                <div class="col invoice col-2">{{ round($subscription->subscription_price_ron * 1.19, 2) }}</div>
+                <div class="col invoice col-1">{{ $subscription->price_ron }}</div>
+                <div class="col invoice col-1">{{ $subscription->price_ron }}</div>
+                <div class="col invoice col-1">{{ round($subscription->price_ron * 0.19, 2) }}</div>
+                <div class="col invoice col-2">{{ round($subscription->price_ron * 1.19, 2) }}</div>
             </div>
             <div class="row invoice align-items-start">
                 <div class="col invoice col-8">Total</div>
 
 
-                <div class="col invoice col-1">{{ $subscription->subscription_price_ron }}</div>
-                <div class="col invoice col-1">{{ round($subscription->subscription_price_ron * 0.19, 2) }}</div>
-                <div class="col invoice col-2">{{ round($subscription->subscription_price_ron * 1.19, 2) }}</div>
+                <div class="col invoice col-1">{{ $subscription->price_ron }}</div>
+                <div class="col invoice col-1">{{ round($subscription->price_ron * 0.19, 2) }}</div>
+                <div class="col invoice col-2">{{ round($subscription->price_ron * 1.19, 2) }}</div>
             </div>
             <div class="row invoice">
                 <div class="col-6"></div>
@@ -40,6 +40,7 @@
 
             <form method="post" action="/acquisition/store" >
                 @csrf
+                <input type='text' name="subscriptionCode" value='{{$subscription->subscription_code}}' hidden>
                 <input type='text' name="subscriptionName" value='{{$subscription->subscription_name}}' hidden>
                 <button class='btn btn-primary' type='submit'>Creaza Factura Proforma</button>
             </form>

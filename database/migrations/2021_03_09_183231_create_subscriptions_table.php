@@ -15,6 +15,7 @@ class CreateSubscriptionsTable extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->id();
+            $table->string('subscription_code');
             $table->string('subscription_name');
             $table->text('subscription_description');
             $table->string('subscription_category');

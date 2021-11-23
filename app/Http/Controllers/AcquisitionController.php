@@ -22,7 +22,7 @@ class AcquisitionController extends Controller
     public function index($code)
     {
         $clsSubscription = new ClsSubscription;
-        $subscription = $clsSubscription->subscriptionDataByName($code);
+        $subscription = $clsSubscription->subscriptionDataByCode($code);
         if ($subscription == '') {
             return 'Acest abonament nu exista! Eroare!';
         }
@@ -39,8 +39,8 @@ class AcquisitionController extends Controller
         $typeAcquisition = 'SBS';
         $categoryAcquisition = 'P';
 
-
-
+        //dd($subscription);
+        
         return view('company.Acquisition', [
             'typeAcquisition' => $typeAcquisition, 
             'categoryAcquisition' => $categoryAcquisition, 
@@ -79,18 +79,18 @@ class AcquisitionController extends Controller
         // se preia abonamentul
         // bring subscription data
         $clsSubscription = new ClsSubscription();
-        $subscription = $clsSubscription->subscriptionDataByName($request->subscriptionName);
+        $subscription = $clsSubscription->subscriptionDataByCode($request->subscriptionCode);
         //return $subscription;
         //------------ Trebuie salvat abonamentul in companySubscription ----
         // se creaza factura serie si numar Proforma
         $clsInvoice = new ClsInvoice();
-        $invoiceSerieNumber = $clsInvoice->createInvoiceSerieNumberDate($subscription->subscription_name, $subscription->subscription_category, $company->id);
-
+        $invoiceSerieNumber = $clsInvoice->createInvoiceSerieNumberDate($subscription->subscription_code, $subscription->subscription_category, $company->id);
+        //return $invoiceSerieNumber;
         //return "Seria: " .$invoiceSerieNumber[0] . "-" . $invoiceSerieNumber[1] . "-" . $invoiceSerieNumber[2];
         // creaza seria
         //return $this->saveInvoice($company, $invoiceSerieNumber);
         // Create the invoice
-        $invoice_amount = $subscription->subscription_price_ron;
+        $invoice_amount = $subscription->price_ron;
         $invoice_amount_vat = $invoice_amount * 0.19;
         $invoice_total_amount = $invoice_amount + $invoice_amount_vat;
         $invoice = [
@@ -118,7 +118,7 @@ class AcquisitionController extends Controller
 
         ];
         $invoiceId = $this->saveInvoice($invoice);
-        //return $invoiceId;
+        //return $invoice;
         // Save invoicebody
         
         $invoice_vat = $invoice_amount * 0.19;
@@ -128,7 +128,7 @@ class AcquisitionController extends Controller
             'invoice_description' => $subscription->subscription_description,
             'invoice_unit_type' => $subscription->type,
             'invoice_unit_price' => 'Buc',
-            'invoice_quantity' => $subscription->subscription_quantity,
+            'invoice_quantity' => 1,
             'invoice_amount' => $invoice_amount,
             'invoice_vat' => $invoice_vat,
             'invoice_amount_with_vat' => $invoice_amount_with_vat,
@@ -142,26 +142,31 @@ class AcquisitionController extends Controller
         // Save the company_subscription
          
         // Se salveaza abonamentul in company_subscriptions
-        $request->request->add(['company_id' => 22]);
+        // trebuie sa mut tot intr-o functie si trebuie sa aduc si variabila companie
+        $request->request->add(['company_id' => $company->id]);
         $request->request->add(['subscription_id' => 33]);
         $request->request->add(['subscription_name' => $subscription->subscription_name]);
+        $request->request->add(['subscription_description' => $subscription->subscription_description]);
         $request->request->add(['subscription_category' => $subscription->subscription_category]);
-        $request->request->add(['subscription_type' => $subscription->type]);
-        $request->request->add(['quantity_now' => 1]);
-        $request->request->add(['quantity_before' => 0]);
-        $request->request->add(['used_for' => 'achizitie']);
-        $request->request->add(['subscription_invoice_id' => $invoiceId]);
-        $request->request->add(['subscription_invoice_serie_number' => $invoice_Serie_Number]);
-        $request->request->add(['subscription_price_eur' => $subscription->subscription_price_eur]);
-        $request->request->add(['subscription_price_ron' => $subscription->subscription_price_ron]);
+        $request->request->add(['subscription_category_name' => $subscription->subscription_category_name]);
+        $request->request->add(['subscription_category_description' => $subscription->subscription_category_description]);
+        $request->request->add(['type' => $subscription->type]);
+        //$request->request->add(['quantity_now' => 1]);
+        //$request->request->add(['quantity_before' => 0]);
+        //$request->request->add(['used_for' => 'achizitie']);
+        //$request->request->add(['subscription_invoice_id' => $invoiceId]);
+        //$request->request->add(['subscription_invoice_serie_number' => $invoice_Serie_Number]);
+        $request->request->add(['price_eur' => $subscription->price_eur]);
+        $request->request->add(['price_ron' => $subscription->price_ron]);
        
         //$request->request->add(['subscription_paid' => false]);
         //$request->request->add(['subscription_activated' => true]);
         //$request->request->add(['subscription_enabled' => true]);
+        $request->request->add(['period' => $subscription->period]);
         $request->request->add(['paid' => false]);
         $request->request->add(['activated' => true]);
         $request->request->add(['enabled' => true]);
-        $request->request->add(['published' => false]);
+        //$request->request->add(['published' => false]);
         
         $input = $request->all();
         CompanySubscription::create($input);

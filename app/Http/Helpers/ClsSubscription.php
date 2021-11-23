@@ -19,10 +19,10 @@ class ClsSubscription
         }
     }
 
-    public function subscriptionDataByName($subscriptionName)
+    public function subscriptionDataByCode($subscriptionCode)
     { 
         // find the subscription using the name
-        $subscription = Subscription::all()->where('subscription_name', $subscriptionName)->first();
+        $subscription = Subscription::all()->where('subscription_code', $subscriptionCode)->first();
         if (empty($subscription)) {
             return '';
         } else {

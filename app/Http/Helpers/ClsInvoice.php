@@ -19,19 +19,19 @@ class ClsInvoice
 
 
     */
-    public function createInvoiceSerieNumberDate($subscriptionName, $subscriptionCategory, $companyId)
+    public function createInvoiceSerieNumberDate($subscriptionCode, $subscriptionCategory, $companyId)
     {
         // Se creeaza numarul facturii in functie de abonament
         $invoiceSerie = $subscriptionCategory;
-        $noOfCh = strlen($subscriptionCategory);
-        $noOfSubscriptionName = substr($subscriptionName, $noOfCh);
+        //$noOfCh = strlen($subscriptionCategory);
+        //$noOfSubscriptionName = substr($subscriptionCode, $noOfCh);
         $noOfInvoicesBySerie = Invoice::where('invoice_serie', $invoiceSerie)->count();
         // se adauga 1 la numarul de facturi anterioare
         $noOfInvoicesBySerie = $noOfInvoicesBySerie + 1;
         $noOfInvoices = Invoice::All()->count();
         $noOfInvoices=$noOfInvoices+1;
         $invoiceNumber =
-            $noOfSubscriptionName . "7" . $companyId
+            $companyId
             . "5" . $noOfInvoicesBySerie . "3" . $noOfInvoices;
         $invoiceSerieNumber=[];
         $invoiceDate = date("d-m-Y");
@@ -39,7 +39,7 @@ class ClsInvoice
         array_push($invoiceSerieNumber,$invoiceNumber);
         array_push($invoiceSerieNumber,$invoiceDate);
 
-
+        //return $subscriptionCode;
         return $invoiceSerieNumber;
     }
     public function createInvoice()
