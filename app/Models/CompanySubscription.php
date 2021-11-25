@@ -11,6 +11,7 @@ class CompanySubscription extends Model
     protected $fillable = [
         'company_id',
         'subscription_id',
+        'invoice_id',
         'subscription_name',
         'subscription_description',
         'subscription_category',

@@ -16,7 +16,8 @@ class CreateCompanySubscriptionsTable extends Migration
         Schema::create('company_subscriptions', function (Blueprint $table) {
             $table->id();
             $table->integer('company_id');
-            $table->string('subscription_id');
+            $table->integer('subscription_id');
+            $table->integer('invoice_id');
             $table->string('subscription_name');
             $table->text('subscription_description');
             $table->string('subscription_category');

@@ -19,6 +19,7 @@ class CreateInvoicesTable extends Migration
             $table->integer('type_id');
             $table->string('invoice_serie');
             $table->string('invoice_number');
+            $table->string('invoice_company_id');
             $table->string('invoice_company_name');
             $table->string('invoice_regcom');
             $table->string('invoice_fiscal_number');

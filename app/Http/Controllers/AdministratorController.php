@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Company;
+use App\Models\Invoice;
+use Illuminate\Support\Facades\DB;
 
 class AdministratorController extends Controller
 {
@@ -81,4 +84,34 @@ class AdministratorController extends Controller
     {
         //
     }
+
+
+     /**
+     * Administrate FacturiProforma in curs de plata
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function facturiProformaInCurs()
+    {
+        
+        $userId = auth()->id();
+       /*  $company=Company::all()
+        ->where('user_id', $userId )->first(); */
+       
+
+        $invoices=DB::table('invoices')
+        ->join('companies', 'companies.id', '=', 'invoices.invoice_company_id')
+        ->join('subscriptions', 'subscriptions.id', '=', 'invoices.type_id')
+        ->select('invoices.*', 'companies.id','companies.company_name','subscriptions.subscription_name', 'subscriptions.subscription_description')
+        
+        ->get();
+        //dd($invoices);
+        return view('Administrare.administrareFacturiProformaInCurs', ['invoices'=>$invoices]);
+
+      
+    }
+
+
+
 }

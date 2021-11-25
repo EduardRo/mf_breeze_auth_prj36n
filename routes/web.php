@@ -118,3 +118,4 @@ Route::get('/subscriptionsandservices', [SubscriptionAndServiceController::class
 // Administrare
 
 Route::get('/administration',[AdministratorController::class,'index']);
+Route::get('/administration/facturiproformaincurs',[AdministratorController::class,'facturiProformaInCurs']);

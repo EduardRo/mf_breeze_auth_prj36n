@@ -56,7 +56,7 @@
             
             <div class="col invoice col-1">{{$InvoiceBody[1]}}</div>
             <div class="col invoice col-1">{{$InvoiceBody[2]}}</div>
-            <div class="col invoice col-2">{{$InvoiceBody[1]+$InvoiceBody[2]}}</div>
+            <div class="col invoice col-2">{{$InvoiceBody->invoice_amount+$InvoiceBody->invoice_vat}}</div>
         </div>
         <div class="row invoice">
             <div class="col-6"></div>

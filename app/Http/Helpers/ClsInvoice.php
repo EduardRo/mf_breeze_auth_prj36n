@@ -33,6 +33,7 @@ class ClsInvoice
         $invoiceNumber =
             $companyId
             . "5" . $noOfInvoicesBySerie . "3" . $noOfInvoices;
+        $invoiceNumber=intval($invoiceNumber);
         $invoiceSerieNumber=[];
         $invoiceDate = date("d-m-Y");
         array_push($invoiceSerieNumber,$invoiceSerie);
